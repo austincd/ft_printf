@@ -1,0 +1,256 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_argument_handling.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
+/*   Updated: 2017/05/16 06:21:09 by adaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+#include <stdio.h>
+
+t_pfconv	*ft_conversion_parsing(char **str)
+{
+	t_pfconv	*new;
+
+	new = ft_new_pfconv();
+	if (str)
+	{
+		if (**str == '%')
+		{
+			printf("checkpoint zero: %s\n", *str);
+			*str = *str + 1;
+			printf("checkpoint one: %s\n", *str);
+			*str = ft_parse_parameter(*str, new);
+			printf("checkpoint two: %s\n", *str);
+			*str = ft_parse_flags(*str, new);
+			printf("checkpoint three: %s\n", *str);
+			*str = ft_parse_width(*str, new);
+			printf("checkpoint four: %s\n", *str);
+			*str = ft_parse_precision(*str, new);
+			printf("checkpoint five: %s\n", *str);
+			*str = ft_parse_length(*str, new, ft_build_lengths());
+			printf("checkpoint six: %s\n", *str);
+			*str = ft_parse_type(*str, new, ft_build_types());
+			printf("checkpoint seven: %s\n", *str);
+		}
+	}
+	return (new);
+}
+
+t_pfconv	*ft_new_pfconv(void)
+{
+	t_pfconv	*new;
+
+	new = NULL;
+	new = (t_pfconv*)ft_memalloc(sizeof(t_pfconv));
+	if (new)
+	{
+		new->length = 0;
+		new->precision = 0;
+		new->width = 0;
+		new->capitalized = 0;
+		new->type = 0;
+		new->parameter = 0;
+		new->flags = NULL;
+		new->string = NULL;
+	}
+	return (new);
+}
+
+char *ft_parse_parameter(char *str, t_pfconv *new)
+{
+	char *ptr;
+
+	ptr = str;
+	if (new)
+		new->parameter = -1;
+	if (ptr)
+	{
+		while (ft_isdigit(*ptr))
+			++ptr;
+		if (*ptr == '$')
+		{
+			new->parameter = ft_atoi(str);
+			return (ptr + 1);
+		}
+	}
+	return (str);
+}
+
+char *ft_parse_flags(char *str, t_pfconv *new)
+{
+	char *ptr;
+	char *flags;
+	int		index;
+
+	index = 0;
+	flags = ft_strdup("-+ 0#");
+	ptr = str;
+	if (new)
+	{
+		new->flags = (int*)ft_memalloc(sizeof(int) * 5);
+		if (ptr && new->flags)
+		{
+			while (ft_strchr(flags, *ptr))
+			{
+				index = ft_strchr(flags, *ptr) - flags;
+				if (new->flags[index] != 0)
+				{
+					free(flags);
+					return (NULL);
+				}
+				new->flags[index] = 1;
+				++ptr;
+			}
+			return (ptr);
+		}
+	}
+	return (str);
+}
+
+char	*ft_parse_width(char *str, t_pfconv *new)
+{
+	char	*ptr;
+	int		index;
+
+	index = 0;
+	ptr = str;
+	if (new)
+	{
+		new->width = 0;
+		if (ptr)
+		{
+			if (*ptr == '*')
+			{
+				new->width = -2;
+				return (ptr + 1);
+			}
+			else if (ft_isdigit(*ptr))
+			{
+				new->width = ft_atoi(ptr);
+				while (ft_isdigit(*ptr))
+					++ptr;
+				return (ptr);
+			}
+			else
+				return (ptr);
+		}
+	}
+	return (ptr);
+}
+
+char	*ft_parse_precision(char *str, t_pfconv *new)
+{
+	char	*ptr;
+	int		index;
+
+	ptr = str;
+	index = 0;
+	if (new)
+	{
+		new->precision = -1;
+		if (ptr)
+		{
+			if (*ptr == '.')
+			{
+				++ptr;
+				if (ft_isdigit(*ptr))
+				{
+					new->precision = ft_atoi(ptr);
+					while (ft_isdigit(*ptr))
+						++ptr;
+				}
+				else if (*ptr == '*')
+				{
+					new->precision = -2;
+					++ptr;
+				}
+			}
+		}
+	}
+	return (ptr);
+}
+
+char	*ft_parse_length(char *str, t_pfconv *new, char **options)
+{
+	char	*ptr;
+	int		*index;
+
+	ptr = str;
+	index = 0;
+	if (new)
+	{
+		new->length = -1;
+		if (ptr)
+		{
+			new->length = ft_strequ_multi(ptr, options, 8);
+			if (new->length >= 0)
+				ptr += ft_strlen(options[new->length]);
+		}
+	}
+	return (ptr);
+}
+
+char	*ft_parse_type(char *str, t_pfconv *new, char **types)
+{
+	char	*ptr;
+
+	ptr = str;
+	if (new && types)
+	{
+	new->type = 0;
+		if (ptr)
+		{
+			if (ft_strchr(types[0], *ptr))
+			{
+				new->type = ft_lowercase(*ptr);
+				if (new->type != *ptr)
+					new->capitalized = 1;
+				if (ft_strchr(types[1], new->type))
+					new->import_type = 'i';
+				else if (ft_strchr(types[2], new->type))
+					new->import_type = '2';
+				else if (ft_strchr(types[3], new->type))
+					new->import_type = 'u';
+				return (ptr + 1);
+			}
+		}
+	}
+	return (NULL);
+}
+
+char	**ft_build_types(void)
+{
+	char **types;
+	int	index;
+
+	index = 5;
+	types = (char**)ft_memalloc(sizeof(char*) * index);
+	types[0] = ft_strdup("sSpPdDiIoOuUxXcCeEfFgGaAn%");
+	types[1] = ft_strdup("di");
+	types[2] = ft_strdup("fega");
+	types[3] = ft_strdup("uxo");
+	types[4] = ft_strdup("scpn%");
+	return (types);
+}
+
+char	**ft_build_lengths(void)
+{
+	char **lengths;
+
+	lengths = (char**)ft_memalloc(sizeof(char*) * 8);
+	lengths[0] = ft_strdup("hh");
+	lengths[1] = ft_strdup("h");
+	lengths[2] = ft_strdup("l");
+	lengths[3] = ft_strdup("ll");
+	lengths[4] = ft_strdup("L");
+	lengths[5] = ft_strdup("z");
+	lengths[6] = ft_strdup("j");
+	lengths[7] = ft_strdup("t");
+	return (lengths);
+}

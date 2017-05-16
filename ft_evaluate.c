@@ -1,0 +1,110 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_evaluate.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
+/*   Updated: 2017/05/16 08:24:02 by adaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+void	ft_eval_num(t_pfconv *current, long long num)
+{
+	char	*str;
+	char	*temp;
+	int		length;
+
+	if (current)
+	{
+		if (ft_strchr(current->flags, '+'))
+			str = ft_strdup ("+");
+		else if (ft_strchr(current->flags, ' '))
+			str = ft_strdup (" ");
+		ft_restrcat(&str, ft_itoa_base(num, current->base));
+		current->string = str;
+		length = ft_strlen(str);
+		if (current->width >= length)
+		{
+			temp = ft_strnew(length - current->width);
+			ft_memset(temp, ' ', length - current->width);
+			if (ft_strchr(current->flags, '0'))
+				ft_memset(temp, '0', length - current->width);
+			ft_restrcat(&temp, str);
+			current->string = temp;
+			free(str);
+		}
+	}
+}
+
+void	ft_eval_unum(t_pfconv *current, unsigned long long num)
+{
+	char	*str;
+	char	*temp;
+	int		length;
+
+	if (current)
+	{
+		if (ft_strchr(current->flags, '+'))
+			str = ft_strdup ("+");
+		else if (ft_strchr(current->flags, ' '))
+			str = ft_strdup (" ");
+		ft_restrcat(&str, ft_itoa_base(num, current->base));
+		current->string = str;
+		length = ft_strlen(str);
+		if (current->width >= length)
+		{
+			temp = ft_strnew(length - current->width);
+			ft_memset(temp, ' ', length - current->width);
+			if (ft_strchr(current->flags, '0'))
+				ft_memset(temp, '0', length - current->width);
+			ft_restrcat(&temp, str);
+			current->string = temp;
+			free(str);
+		}
+	}
+}
+
+void	ft_eval_str(t_pfconv *current, char *str)
+{
+	long long	length;
+	char		*new;
+
+	length = ft_strlen(str);
+	if (current)
+	{
+		if (length > current->length && current->length >= 0)
+			length = current->length;
+		new = ft_strnew(length);
+		ft_strlcpy(new, str, length + 1);
+		current->string = new;
+	}
+}
+
+void	ft_eval_float(t_pfconv *current, long double num)
+{
+	char	*temp1;
+	char	*temp2;
+
+	if (current)
+	{
+		if (current->type == 'g')
+		{
+			temp1 = ft_float_standard(current, num, 10);
+			temp2 = ft_float_normal(current, num, 10);
+			if (ft_strlen(temp1) < ft_strlen(temp2))
+				current->string = temp1;
+			else
+				current->string = temp2;
+		}
+		else if (current->type == 'e')
+			current->string = ft_float_standard(current, num, 10);
+		else if (current->type == 'f')
+			current->string = ft_float_normal(current, num, 10);
+		else if (current->type == 'a')
+			current->string = ft_float_normal(current, num, 16);
+	}
+}
