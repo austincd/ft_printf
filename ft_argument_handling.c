@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/16 06:21:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/17 05:43:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@
 t_pfconv	*ft_conversion_parsing(char **str)
 {
 	t_pfconv	*new;
+	char		*temp;
 
 	new = ft_new_pfconv();
 	if (str)
 	{
 		if (**str == '%')
 		{
-			printf("checkpoint zero: %s\n", *str);
+			temp = *str;
 			*str = *str + 1;
-			printf("checkpoint one: %s\n", *str);
 			*str = ft_parse_parameter(*str, new);
-			printf("checkpoint two: %s\n", *str);
 			*str = ft_parse_flags(*str, new);
-			printf("checkpoint three: %s\n", *str);
 			*str = ft_parse_width(*str, new);
-			printf("checkpoint four: %s\n", *str);
 			*str = ft_parse_precision(*str, new);
-			printf("checkpoint five: %s\n", *str);
 			*str = ft_parse_length(*str, new, ft_build_lengths());
-			printf("checkpoint six: %s\n", *str);
 			*str = ft_parse_type(*str, new, ft_build_types());
-			printf("checkpoint seven: %s\n", *str);
+			if (new->type == 'o')
+				new->base = 8;
+			new->conv_length = *str - temp;
+			new->orig = ft_strnew(new->conv_length);
+			ft_strncpy(new->orig, temp, new->conv_length);
 		}
 	}
 	return (new);
@@ -50,11 +49,14 @@ t_pfconv	*ft_new_pfconv(void)
 	new = (t_pfconv*)ft_memalloc(sizeof(t_pfconv));
 	if (new)
 	{
+		new->base = 10;
 		new->length = 0;
 		new->precision = 0;
 		new->width = 0;
 		new->capitalized = 0;
 		new->type = 0;
+		new->import_type = 0;
+		new->conv_length = 0;
 		new->parameter = 0;
 		new->flags = NULL;
 		new->string = NULL;
@@ -209,6 +211,8 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 			if (ft_strchr(types[0], *ptr))
 			{
 				new->type = ft_lowercase(*ptr);
+				if (new->type == 'a' || new->type == 'x')
+					new->base = 16;
 				if (new->type != *ptr)
 					new->capitalized = 1;
 				if (ft_strchr(types[1], new->type))

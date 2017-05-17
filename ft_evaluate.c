@@ -6,32 +6,35 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/16 08:24:02 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/17 05:44:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_eval_num(t_pfconv *current, long long num)
+void		ft_eval_num(t_pfconv *current, long long num)
 {
 	char	*str;
 	char	*temp;
 	int		length;
 
+	length = 0;
+	str = NULL;
 	if (current)
 	{
-		if (ft_strchr(current->flags, '+'))
+		if (current->flags[1])
 			str = ft_strdup ("+");
-		else if (ft_strchr(current->flags, ' '))
+		else if (current->flags[2])
 			str = ft_strdup (" ");
 		ft_restrcat(&str, ft_itoa_base(num, current->base));
 		current->string = str;
-		length = ft_strlen(str);
+		if (str)
+			length = ft_strlen(str);
 		if (current->width >= length)
 		{
 			temp = ft_strnew(length - current->width);
 			ft_memset(temp, ' ', length - current->width);
-			if (ft_strchr(current->flags, '0'))
+			if (current->flags[3])
 				ft_memset(temp, '0', length - current->width);
 			ft_restrcat(&temp, str);
 			current->string = temp;
@@ -40,7 +43,7 @@ void	ft_eval_num(t_pfconv *current, long long num)
 	}
 }
 
-void	ft_eval_unum(t_pfconv *current, unsigned long long num)
+void		ft_eval_unum(t_pfconv *current, unsigned long long num)
 {
 	char	*str;
 	char	*temp;
@@ -48,9 +51,9 @@ void	ft_eval_unum(t_pfconv *current, unsigned long long num)
 
 	if (current)
 	{
-		if (ft_strchr(current->flags, '+'))
+		if (current->flags[1])
 			str = ft_strdup ("+");
-		else if (ft_strchr(current->flags, ' '))
+		else if (current->flags[2])
 			str = ft_strdup (" ");
 		ft_restrcat(&str, ft_itoa_base(num, current->base));
 		current->string = str;
@@ -59,7 +62,7 @@ void	ft_eval_unum(t_pfconv *current, unsigned long long num)
 		{
 			temp = ft_strnew(length - current->width);
 			ft_memset(temp, ' ', length - current->width);
-			if (ft_strchr(current->flags, '0'))
+			if (current->flags[3])
 				ft_memset(temp, '0', length - current->width);
 			ft_restrcat(&temp, str);
 			current->string = temp;
@@ -68,7 +71,7 @@ void	ft_eval_unum(t_pfconv *current, unsigned long long num)
 	}
 }
 
-void	ft_eval_str(t_pfconv *current, char *str)
+void		ft_eval_str(t_pfconv *current, char *str)
 {
 	long long	length;
 	char		*new;
@@ -83,11 +86,20 @@ void	ft_eval_str(t_pfconv *current, char *str)
 		current->string = new;
 	}
 }
+void		ft_eval_char(t_pfconv *current, char c)
+{
+	if (current)
+	{
+		current->string = ft_strnew(1);
+		current->string[0] = c;
+	}
+}
 
-void	ft_eval_float(t_pfconv *current, long double num)
+void		ft_eval_float(t_pfconv *current, long double num)
 {
 	char	*temp1;
 	char	*temp2;
+	int		length;
 
 	if (current)
 	{

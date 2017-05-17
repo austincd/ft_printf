@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:14:45 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/16 06:35:57 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/17 04:48:57 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	ft_import_type(t_pfconv *current)
 		if (current->import_type == 'i')
 		{
 			if (current->length == 2)
-				current->import_type == 'l';
+				current->import_type = 'l';
 			if (current->length == 3)
-				current->import_type == 'm';
+				current->import_type = 'm';
 			if (current->length == 5)
-				current->import_type == 'z';
+				current->import_type = 'z';
 			if (current->length == 6)
-				current->import_type == 'j';
+				current->import_type = 'j';
 			if (current->length == 7)
-				current->import_type == 't';
+				current->import_type = 't';
 		}
 		if (current->import_type == '2')
 		{
