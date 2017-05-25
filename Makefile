@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/05/23 16:23:49 by adaly            ###   ########.fr        #
+#    Updated: 2017/05/24 19:25:47 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,8 +23,8 @@ OBJECTS= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o ft_import_t
 all: $(NAME)
 
 $(NAME):
-		gcc $(FLAGS) -I$(INCLUDES)  -c $(SRCS)
-		ar rc $(NAME) $(OBJECTS) libft/*.o
+		gcc $(FLAGS) -I$(INCLUDES) $(SRCS)
+		ar rc $(NAME) $(OBJECTS) libft/libft.a
 clean: 
 		rm -f $(OBJECTS)
 
