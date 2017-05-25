@@ -6,13 +6,13 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/23 15:52:29 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/24 19:28:15 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft/libft.h"
+# include "libft.h"
 # include <stdarg.h>
 
 typedef struct	s_printf_conv

@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/05/24 19:25:47 by adaly            ###   ########.fr        #
+#    Updated: 2017/05/24 19:28:32 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,7 @@ all: $(NAME)
 
 $(NAME):
 		gcc $(FLAGS) -I$(INCLUDES) $(SRCS)
-		ar rc $(NAME) $(OBJECTS) libft/libft.a
+		ar rc $(NAME) $(OBJECTS) libft.a
 clean: 
 		rm -f $(OBJECTS)
 
