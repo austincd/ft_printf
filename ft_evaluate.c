@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/17 05:44:32 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/24 19:00:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		ft_eval_num(t_pfconv *current, long long num)
 				ft_memset(temp, '0', length - current->width);
 			ft_restrcat(&temp, str);
 			current->string = temp;
-			free(str);
+			//free(str);
 		}
 	}
 }
@@ -49,6 +49,7 @@ void		ft_eval_unum(t_pfconv *current, unsigned long long num)
 	char	*temp;
 	int		length;
 
+	str = NULL;
 	if (current)
 	{
 		if (current->flags[1])
@@ -66,7 +67,7 @@ void		ft_eval_unum(t_pfconv *current, unsigned long long num)
 				ft_memset(temp, '0', length - current->width);
 			ft_restrcat(&temp, str);
 			current->string = temp;
-			free(str);
+			//free(str);
 		}
 	}
 }
@@ -79,8 +80,8 @@ void		ft_eval_str(t_pfconv *current, char *str)
 	length = ft_strlen(str);
 	if (current)
 	{
-		if (length > current->length && current->length >= 0)
-			length = current->length;
+		if (length > current->precision && current->precision >= 0)
+			length = current->precision;
 		new = ft_strnew(length);
 		ft_strlcpy(new, str, length + 1);
 		current->string = new;
@@ -99,7 +100,6 @@ void		ft_eval_float(t_pfconv *current, long double num)
 {
 	char	*temp1;
 	char	*temp2;
-	int		length;
 
 	if (current)
 	{
@@ -118,5 +118,12 @@ void		ft_eval_float(t_pfconv *current, long double num)
 			current->string = ft_float_normal(current, num, 10);
 		else if (current->type == 'a')
 			current->string = ft_float_normal(current, num, 16);
+		ft_precision(current, current->precision);
+/*		if (ft_strlen(ft_strchr(current->string, '.')) - 1 < current->precision)
+		{
+			length = ft_strlen(ft_strchr(current->string, '.')) - 1;
+		}
+		else
+			*(ft_strchr(current->string, '.') + current->precision + 1) = 0;*/
 	}
 }

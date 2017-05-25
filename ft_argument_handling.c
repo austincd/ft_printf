@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/17 05:43:32 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/24 19:01:49 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ char *ft_parse_flags(char *str, t_pfconv *new)
 				index = ft_strchr(flags, *ptr) - flags;
 				if (new->flags[index] != 0)
 				{
-					free(flags);
+					//free(flags);
 					return (NULL);
 				}
 				new->flags[index] = 1;

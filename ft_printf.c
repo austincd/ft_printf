@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/17 05:47:24 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/24 18:43:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		ft_printf(char *str, ...)
 {
 	t_pfconv			**conversions;
 	va_list				args;
-	char				*ints;
+	char				*types[3];
 	int					index;
 	unsigned long long	chars;
 
@@ -24,17 +24,21 @@ void		ft_printf(char *str, ...)
 	conversions = ft_parse_for_conversions(str);
 	index = 0;
 	chars = ft_strlen(str);
-	ints = ft_strdup("ilmzjtuvw");
+	types[0] = ft_strdup("ilmzjtuvw");
+	types[1] = ft_strdup("LDf2");
+	types[2] = ft_strdup("cs%p");
 	while (conversions[index])
 	{
 		ft_import_type(conversions[index]);
-		if (ft_strchr(ints, conversions[index]->import_type))
-			ft_printf_int(str, conversions[index], args);
-		else if (conversions[index]->import_type == 'L' ||
-				conversions[index]->import_type == 'D')
-			ft_printf_double(str, conversions[index], args);
-		else
-			ft_printf_other(str, conversions[index], args);
+		if (ft_strchr(types[0], conversions[index]->import_type))
+			ft_printf_int(conversions[index], args);
+		else if (ft_strchr(types[1], conversions[index]->import_type))
+			ft_printf_double(conversions[index], args);
+		if (ft_strchr(types[2], conversions[index]->type))
+		{
+			ft_printf_other(conversions[index], args);
+		}
+		ft_strlen(conversions[index]->string);
 		chars += (ft_strlen(conversions[index]->string) - conversions[index]->conv_length);
 		ft_find_replace(&str, conversions[index]->orig, conversions[index]->string);
 		++index;
@@ -42,7 +46,7 @@ void		ft_printf(char *str, ...)
 	write(1, str, chars);
 }
 
-void		ft_printf_int(char *str, t_pfconv *current, va_list args)
+void		ft_printf_int(t_pfconv *current, va_list args)
 {
 	if (current)
 	{
@@ -65,7 +69,7 @@ void		ft_printf_int(char *str, t_pfconv *current, va_list args)
 	}
 }
 
-void		ft_printf_double(char *str, t_pfconv *current, va_list args)
+void		ft_printf_double(t_pfconv *current, va_list args)
 {
 	if (current)
 	{
@@ -77,9 +81,11 @@ void		ft_printf_double(char *str, t_pfconv *current, va_list args)
 			ft_eval_float(current, va_arg(args, long double));
 		if (current->import_type == 'D')
 			ft_eval_float(current, va_arg(args, double));
+		if (current->import_type == '2')
+			ft_eval_float(current, va_arg(args, double));
 	}
 }
-void		ft_printf_other(char *str, t_pfconv *current, va_list args)
+void		ft_printf_other(t_pfconv *current, va_list args)
 {
 		if (current->width == -2)
 			current->width = va_arg(args, int);
@@ -87,8 +93,10 @@ void		ft_printf_other(char *str, t_pfconv *current, va_list args)
 			current->precision = va_arg(args, int);
 		if (current->import_type == 's')
 			ft_eval_str(current, va_arg(args, char*));
-		if (current->import_type == 'c')
-			ft_eval_char(current, va_arg(args, char));
+		if (current->type == 'c')
+			ft_eval_char(current, va_arg(args, int));
+		if	(current->type == '%')
+			ft_eval_char(current, '%');
 }
 
 t_pfconv	**ft_parse_for_conversions(char *str)
@@ -98,6 +106,7 @@ t_pfconv	**ft_parse_for_conversions(char *str)
 	int			index;
 
 	index = 0;
+	num_of_convs = 0;
 	while (str[index])
 	{
 		if (str[index] == '%')

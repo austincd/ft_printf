@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/17 05:05:50 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/23 15:52:29 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
-# include <stdio.h>
 
 typedef struct	s_printf_conv
 {
@@ -54,8 +53,9 @@ char		**ft_float_build_invalids(int capitalized);
 char		*ft_itoa_float(long double num, int base);
 void		ft_import_type(t_pfconv *current);
 t_pfconv	**ft_parse_for_conversions(char *str);
-void		ft_printf_int(char *str, t_pfconv *current, va_list args);
-void		ft_printf_double(char *str, t_pfconv *current, va_list args);
-void		ft_printf_other(char *str, t_pfconv *current, va_list args);
+void		ft_printf_int(t_pfconv *current, va_list args);
+void		ft_printf_double(t_pfconv *current, va_list args);
+void		ft_printf_other(t_pfconv *current, va_list args);
+void		ft_precision(t_pfconv *current, unsigned int precision);
 
 #endif
