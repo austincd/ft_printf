@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/26 21:56:36 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:19:21 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ t_pfconv	*ft_new_pfconv(void)
 	{
 		new->base = 10;
 		new->length = 0;
-		new->precision = 0;
-		new->width = 0;
+		new->precision = -1;
+		new->width = -1;
 		new->capitalized = 0;
 		new->type = 0;
 		new->import_type = 0;
