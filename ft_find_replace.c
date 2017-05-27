@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:29:51 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/18 15:28:52 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:43:12 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_find_replace(char **p_big, char *p_little, char *p_new)
 	char	*new_str;
 	char	*old_loc;
 	int		old_len;
+	int		ret;
 
 	new_str = NULL;
 	if (p_big)
@@ -31,10 +32,11 @@ int	ft_find_replace(char **p_big, char *p_little, char *p_new)
 			{
 				ft_strncat(new_str, *p_big, (old_loc - *p_big));
 				ft_strcat(new_str, p_new);
+				ret = ft_strlen(new_str);
 				ft_strcat(new_str, (old_loc + old_len));
 				free(*p_big);
 				*p_big = new_str;
-				return (1);
+				return (ret);
 			}
 		}
 	}

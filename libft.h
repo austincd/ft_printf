@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/26 22:34:38 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:48:58 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ long long		ft_next_sqrt(long long number);
 long long		ft_how_many_char(char *str, char c);
 int				ft_strequ_multi(char *str, char **table, int num);
 int				ft_find_replace(char **p_big, char *p_little, char *p_new);
+int				ft_find_replace_after(char **str, char *to_find, char *to_put, unsigned int after);
 char			ft_lowercase(char c);
 void			*ft_read_file(int fd, long long offset, long long size);
 char			*ft_strndup(char *str, long long len);

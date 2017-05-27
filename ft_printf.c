@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 00:18:54 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:46:00 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int		ft_printf(char *str, ...)
 	int					index;
 	unsigned long long	chars;
 	char				*new;
+	int					after;
 
 	printf("%s\n", str);
+	after = 0;
 	va_start(args, str);
 	new = NULL;
 	new = ft_strdup(str);
@@ -46,7 +48,7 @@ int		ft_printf(char *str, ...)
 		conversions[index]->chars = ft_strlen(conversions[index]->string);
 		ft_width(conversions[index]);
 		chars += (ft_strlen(conversions[index]->string) - conversions[index]->conv_length);
-		ft_find_replace(&new, conversions[index]->orig, conversions[index]->string);
+		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
 	}
 //	write(1, new, chars);
