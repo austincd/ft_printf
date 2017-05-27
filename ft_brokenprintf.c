@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 02:23:10 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 03:26:30 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ int		ft_printf(char *str, ...)
 		conversions[index]->chars = ft_strlen(conversions[index]->string);
 		ft_width(conversions[index]);
 //		printf("%s\n", conversions[index]->string);
-		chars += (ft_strlen(conversions[index]->string) - conversions[index]->conv_length);
+		chars += conversions[index]->chars - conversions[index]->conv_length;
+//	if (conversions[index]->type == 'c')
+//		after += ft_find_replace_char(&new, conversions[index]->orig, conversions[index]->string[0], after);
+//	else
 		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
 	}
