@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 00:06:34 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:10:43 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ t_pfconv	**ft_parse_for_conversions(char *str)
 			conversions[index] = ft_conversion_parsing(&str);
 			++index;
 		}
+		printf("%s\n", str);
 		++str;
 		
 	}
