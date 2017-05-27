@@ -2,9 +2,13 @@
 
 int main()
 {
-	char *str;
-	unsigned int new;
+	char *big;
+	char *little;
+	char *replace;
 
-	str = ft_strdup("%%");
-	ft_printf(str);
+	big = ft_strdup("is that that bad?");
+	little = ft_strdup("that");
+	replace = ft_strdup("THAT");
+	ft_find_replace_after(&big, little, replace, 7);
+	printf("%s\n", big);
 }
