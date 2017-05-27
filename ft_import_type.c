@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:14:45 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:31:29 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:31:57 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_import_type(t_pfconv *current)
 	if (current)
 	{
 		if (current->type == '%')
-			current->import_type == '%';
+			current->import_type = '%';
 		if (current->import_type == 'u')
 		{
 			if (current->length == 2)
