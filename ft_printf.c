@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:16:45 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:24:21 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_printf(char *str, ...)
 	while (conversions[index])
 	{
 		printf("width %d, precision %d", conversions[index]->width, conversions[index]->precision);
-//		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
+		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
 		ft_import_type(conversions[index]);
 		if (ft_strchr(types[0], conversions[index]->import_type))
 			ft_printf_int(conversions[index], args);
