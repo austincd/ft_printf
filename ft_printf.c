@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 04:34:06 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:35:53 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_printf(char *str, ...)
 		}
 		conversions[index]->chars = ft_strlen(conversions[index]->string);
 		ft_width(conversions[index]);
-//		printf("%s\n", conversions[index]->string);
+		printf("string is : %s\n", conversions[index]->string);
 		chars += (ft_strlen(conversions[index]->string) - conversions[index]->conv_length);
 		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
