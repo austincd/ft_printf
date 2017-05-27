@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/05/27 03:12:17 by adaly            ###   ########.fr        #
+#    Updated: 2017/05/27 06:42:02 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -48,7 +48,7 @@ ft_strequ_multi.c ft_find_replace.c ft_lowercase.c ft_read_file.c \
 ft_get_next_n_lines.c get_next_line.c ft_itoa_base.c ft_itoa_float.c \
 ft_utoa_base.c ft_find_replace_after.c ft_find_replace_char.c ft_charcat.c
 
-SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c ft_import_type.c ft_flags.c
+SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c ft_import_type.c ft_flags.c ft_revised_printf.c ft_tslist.c
 
 OBJECTS1= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o \
@@ -83,7 +83,7 @@ ft_strequ_multi.o ft_find_replace.o ft_lowercase.o ft_read_file.o \
 ft_get_next_n_lines.o get_next_line.o ft_itoa_base.o ft_itoa_float.o \
 ft_utoa_base.o ft_find_replace_after.o ft_find_replace_char.o ft_charcat.o
 
-OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o ft_import_type.o ft_flags.o
+OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o ft_import_type.o ft_flags.o ft_revised_printf.o ft_tslist.o
 
 all: $(NAME)
 

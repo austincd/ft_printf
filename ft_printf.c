@@ -6,13 +6,13 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 04:52:27 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 06:48:55 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(char *str, ...)
+/*int		ft_printf(char *str, ...)
 {
 	t_pfconv			**conversions;
 	va_list				args;
@@ -57,7 +57,7 @@ int		ft_printf(char *str, ...)
 	write(1, new, chars);
 	free(new);
 	return (chars);
-}
+}*/
 
 void		ft_printf_int(t_pfconv *current, va_list args)
 {
@@ -116,32 +116,23 @@ void		ft_printf_other(t_pfconv *current, va_list args)
 			ft_eval_char(current, '%');
 }
 
-t_pfconv	**ft_parse_for_conversions(char *str)
+void	ft_parse_for_conversions(char *str, t_slist **first)
 {
-	t_pfconv	**conversions;
-	int			num_of_convs;
-	int			index;
+	t_slist		*entry;
 
-	index = 0;
-	num_of_convs = 0;
-	while (str[index])
+	entry = NULL;
+	while (str)
 	{
-		if (str[index] == '%')
-			++num_of_convs;
-		++index;
-	}
-	conversions = (t_pfconv**)ft_memalloc(sizeof(t_pfconv*) * num_of_convs + 1);
-	index = 0;
-	while (*str)
-	{
+		entry = ft_new_tslist(entry, NULL, 0);
+		if (!*first)
+			*first = entry;
 		if (*str == '%')
+			entry->conversion = ft_conversion_parsing(&str);
+		else
 		{
-			conversions[index] = ft_conversion_parsing(&str);
-			++index;
+			entry->string = ft_strcdup(str, '%');
+			str = ft_strchr(str, '%');
 		}
-		++str;
-		
 	}
-	conversions[index] = NULL;
-	return (conversions);
+	free(str);
 }
