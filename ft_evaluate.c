@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 04:51:57 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:56:52 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		ft_eval_str(t_pfconv *current, char *str)
 		current->string = new;
 	}
 }
-void		ft_eval_char(t_pfconv *current, int c)
+void		ft_eval_char(t_pfconv *current, unsigned int c)
 {
 	if (current)
 	{

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 04:42:23 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:57:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		ft_eval_unum(t_pfconv *current, unsigned long long num);
 void		ft_eval_num(t_pfconv *current, long long num);
 void		ft_eval_float(t_pfconv *current, long double num);
 void		ft_eval_str(t_pfconv *current, char *str);
-void		ft_eval_char(t_pfconv *current, int c);
+void		ft_eval_char(t_pfconv *current, unsigned int c);
 char		*ft_float_standard(t_pfconv *current, long double num, int base);
 char		*ft_float_normal(t_pfconv *current, long double num, int base);
 char		**ft_float_build_invalids(int capitalized);
