@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 00:26:08 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 03:09:27 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:27:34 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	ft_find_replace_after(char **str, char *to_find, char *to_put, unsigned int 
 		new = ft_strsub(*str, after, ft_strlen(*str + after));
 		if (new)
 		{
-				if ((status = ft_find_replace(&new, to_find, to_put)))
-					ft_find_replace(str, *str + after, new);
+			if ((status = ft_find_replace(&new, to_find, to_put)))
+			{
+				ft_find_replace(str, *str + after, new);
+				
+			}
 		}
 	}
 	return (status + after);
