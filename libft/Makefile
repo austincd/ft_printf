@@ -6,11 +6,11 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/05/17 04:57:21 by adaly            ###   ########.fr        #
+#    Updated: 2017/05/26 21:49:14 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME=libft.a
+NAME=libftprintf.a
 
 FLAGS= -c -Wall -Wextra -Werror
 
@@ -47,6 +47,8 @@ ft_open_file.c ft_next_square.c ft_next_sqrt.c ft_how_many_char.c \
 ft_strequ_multi.c ft_find_replace.c ft_lowercase.c ft_read_file.c \
 ft_get_next_n_lines.c get_next_line.c ft_itoa_base.c ft_itoa_float.c
 
+SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c ft_import_type.c ft_flags.c
+
 OBJECTS1= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o \
 ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o \
@@ -79,15 +81,17 @@ ft_open_file.o ft_next_square.o ft_next_sqrt.o ft_how_many_char.o \
 ft_strequ_multi.o ft_find_replace.o ft_lowercase.o ft_read_file.o \
 ft_get_next_n_lines.o get_next_line.o ft_itoa_base.o ft_itoa_float.o
 
+OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o ft_import_type.o ft_flags.o
+
 all: $(NAME)
 
 $(NAME):
-		gcc $(FLAGS) -I$(INCLUDES) $(SRCS1)$(SRCS2)$(SRCSBONUS)$(SRCSEXTRA)
-		ar rc $(NAME) $(OBJECTS1)$(OBJECTS2)$(OBJECTSBONUS)$(OBJECTSEXTRA)
+		gcc $(FLAGS) -I$(INCLUDES) $(SRCS1)$(SRCS2)$(SRCSBONUS)$(SRCSEXTRA) $(SRCSPRINTF)
+		ar rc $(NAME) $(OBJECTS1)$(OBJECTS2)$(OBJECTSBONUS)$(OBJECTSEXTRA) $(OBJECTSPRINTF)
 		ranlib $(NAME)
 
 clean: 
-		rm -f $(OBJECTS1)$(OBJECTS2)$(OBJECTSBONUS)$(OBJECTSEXTRA)
+		rm -f $(OBJECTS1)$(OBJECTS2)$(OBJECTSBONUS)$(OBJECTSEXTRA) $(OBJECTSPRINTF)
 
 fclean: clean
 		rm -f $(NAME)
