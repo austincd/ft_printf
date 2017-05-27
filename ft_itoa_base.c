@@ -6,21 +6,11 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/26 22:32:00 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 03:13:23 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	ft_charcat(char *str, char c)
-{
-	if (str)
-	{
-		while (*str)
-			++str;
-		*str = c;
-	}
-}
 
 static int	ft_numlen_base(long long num, int base)
 {
