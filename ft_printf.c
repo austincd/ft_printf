@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:29:18 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:33:06 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_printf(char *str, ...)
 	char				*new;
 	int					after;
 
-	printf("%s\n\n\n\n", str);
+//	printf("%s\n\n\n\n", str);
 	after = 0;
 	va_start(args, str);
 	new = NULL;
@@ -35,8 +35,8 @@ int		ft_printf(char *str, ...)
 	types[2] = ft_strdup("cs%p");
 	while (conversions[index])
 	{
-		printf("width %d, precision %d", conversions[index]->width, conversions[index]->precision);
-		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
+//		printf("width %d, precision %d", conversions[index]->width, conversions[index]->precision);
+//		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
 		ft_import_type(conversions[index]);
 		if (ft_strchr(types[0], conversions[index]->import_type))
 			ft_printf_int(conversions[index], args);
@@ -48,7 +48,7 @@ int		ft_printf(char *str, ...)
 		}
 		conversions[index]->chars = ft_strlen(conversions[index]->string);
 		ft_width(conversions[index]);
-		printf("%s\n", conversions[index]->string);
+//		printf("%s\n", conversions[index]->string);
 		chars += (ft_strlen(conversions[index]->string) - conversions[index]->conv_length);
 		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
