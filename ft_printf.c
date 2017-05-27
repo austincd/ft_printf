@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 00:03:33 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:06:34 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		ft_printf(char *str, ...)
 	types[2] = ft_strdup("cs%p");
 	while (conversions[index])
 	{
-		printf("type %c\n", conversions[index]->type);
+		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
 		ft_import_type(conversions[index]);
 		if (ft_strchr(types[0], conversions[index]->import_type))
 			ft_printf_int(conversions[index], args);
