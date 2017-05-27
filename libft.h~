@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/26 22:34:38 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/26 22:30:43 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_itoa_base(long long n, int base);
-char			*ft_utoa_base(unsigned long long, unsigned int base);
+char			*ft_utoa_base(unsigned long long, int base);
 char			*ft_itoa_float(long double num, int base);
 void			ft_putchar(unsigned int c);
 void			ft_putstr(char const *s);

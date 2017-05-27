@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/26 22:32:00 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/26 22:31:06 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char		*ft_itoa_base(long long val, int base)
 	int		length;
 	char		*new;
 
+	val = value;
 	new = NULL;
 	if (base >= 2 && base <= 16)
 	{

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/26 22:27:39 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/26 22:16:23 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		ft_eval_unum(t_pfconv *current, unsigned long long num)
 			str = ft_strdup ("+");
 		else if (current->flags[2])
 			str = ft_strdup (" ");
-		ft_restrcat(&str, ft_utoa_base(num, current->base));
+		ft_restrcat(&str, ft_itoa_base(num, current->base));
 		current->string = str;
 		length = ft_strlen(str);
 		if (current->width >= length)

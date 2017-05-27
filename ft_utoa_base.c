@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/26 22:32:00 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/26 22:34:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_charcat(char *str, char c)
 	}
 }
 
-static int	ft_numlen_base(long long num, int base)
+static int	ft_numlen_base(unsigned long long num, unsigned int base)
 {
 	int counter;
 
@@ -37,7 +37,7 @@ static int	ft_numlen_base(long long num, int base)
 	return (counter);
 }
 
-static void	ft_itoa_internal(char *str, long long num, int base)
+static void	ft_utoa_internal(char *str, unsigned long long num, unsigned int base)
 {
 	char	digits[17];
 
@@ -48,13 +48,13 @@ static void	ft_itoa_internal(char *str, long long num, int base)
 			ft_charcat(str, digits[num]);
 		else if (num >= base)
 		{
-			ft_itoa_internal(str, num / base, base);
-			ft_itoa_internal(str, num % base, base);
+			ft_utoa_internal(str, num / base, base);
+			ft_utoa_internal(str, num % base, base);
 		}
 	}
 }
 
-char		*ft_itoa_base(long long val, int base)
+char		*ft_utoa_base(unsigned long long val, unsigned int base)
 {
 	int		length;
 	char		*new;
@@ -62,20 +62,10 @@ char		*ft_itoa_base(long long val, int base)
 	new = NULL;
 	if (base >= 2 && base <= 16)
 	{
-		if (val < 0)
-		{
-			val *= -1;
-			if (base == 10)
-			{
-				length = ft_numlen_base(val, base) + 1;
-				new = ft_strnew(length);
-				ft_charcat(new, '-');
-			}
-		}
 		length = ft_numlen_base(val, base);
 		if (!new)
 			new = ft_strnew(length);	
-		ft_itoa_internal(new, val, base);
+		ft_utoa_internal(new, val, base);
 	}
 	return (new);
 }
