@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:11:17 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:33:33 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_eval_num(t_pfconv *current, long long num)
 	char	*temp;
 	int		length;
 
-	printf("num is %lld\n", num);
+//	printf("num is %lld\n", num);
 	length = 0;
 	str = NULL;
 	if (current)
