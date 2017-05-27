@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:43:36 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:46:04 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void		ft_printf_int(t_pfconv *current, va_list args)
 		if (current->precision == -2)
 			current->precision = va_arg(args, int);
 		if (current->import_type == 'i' || current->import_type)
-			ft_eval_num(current, (long long)va_arg(args, int));
+			ft_eval_num(current, va_arg(args, int));
 		if (current->import_type == 'l')
-			ft_eval_num(current, (long long)va_arg(args, long int));
+			ft_eval_num(current, va_arg(args, long int));
 		if (current->import_type == 'm')
 			ft_eval_num(current, va_arg(args, long long int));
 		if (current->import_type == 'u')
