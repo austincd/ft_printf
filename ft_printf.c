@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:51:36 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:56:13 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		ft_printf_int(t_pfconv *current, va_list args)
 		if (current->import_type == 'v')
 			ft_eval_unum(current, va_arg(args, unsigned long int));
 		if (ft_strchr(new, current->import_type))
-			ft_eval_unum(current, va_arg(args, unsigned long long int));
+			ft_eval_unum(current, va_arg(args, unsigned long long));
 	}
 	free(new);
 }
