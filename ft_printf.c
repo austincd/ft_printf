@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 00:10:43 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:15:45 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_printf(char *str, ...)
 	unsigned long long	chars;
 	char				*new;
 
+	printf("%s\n", str);
 	va_start(args, str);
 	new = NULL;
 	new = ft_strdup(str);
@@ -133,7 +134,6 @@ t_pfconv	**ft_parse_for_conversions(char *str)
 			conversions[index] = ft_conversion_parsing(&str);
 			++index;
 		}
-		printf("%s\n", str);
 		++str;
 		
 	}
