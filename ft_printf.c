@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 02:03:18 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 02:09:45 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_printf(char *str, ...)
 	char				*new;
 	int					after;
 
-//	printf("::%s\n:\n", str);
+	printf("::\n%s\n:\n", str);
 	after = 0;
 	va_start(args, str);
 	new = NULL;
