@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 02:19:47 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 02:21:00 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,7 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 					new->import_type = '2';
 				else if (ft_strchr(types[3], new->type))
 					new->import_type = 'u';
-				else if (ft_strchr(types[5], new->type))
+				else if (ft_strchr(types[5], *ptr))
 					new->length = 2;
 				return (ptr + 1);
 			}
