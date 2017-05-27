@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 04:35:53 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:45:47 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void		ft_printf_other(t_pfconv *current, va_list args)
 		if (current->import_type == 's')
 			ft_eval_str(current, va_arg(args, char*));
 		if (current->type == 'c')
-			ft_eval_char(current, va_arg(args, int));
+			ft_eval_char(current, (char)va_arg(args, int);
 		if	(current->type == '%')
 			ft_eval_char(current, '%');
 }
