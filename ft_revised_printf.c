@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 07:06:55 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 07:09:40 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int			ft_printf(char *str, ...)
 	ft_evaluate_conversions(list, args);
 	while (list)
 	{
-//		chars += write(1, (list->string), list->size);
-		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
+		list->size = ft_strlen(list->string);
+		chars += write(1, (list->string), list->size);
+//		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
 		++counter;
 		list = list->next;
 	}
@@ -58,7 +59,7 @@ int			ft_evaluate_conversions(t_slist *list, va_list args)
 			list->string = list->conversion->string;
 			list->conversion->chars = ft_strlen(list->string);
 			list->size = list->conversion->chars;
-			printf("list conversion string : %s\n", list->conversion->string);
+//			printf("list conversion string : %s\n", list->conversion->string);
 		}
 		list = list->next;
 		++counter;
