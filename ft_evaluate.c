@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 02:23:19 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 04:41:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,13 @@ void		ft_eval_str(t_pfconv *current, char *str)
 		current->string = new;
 	}
 }
-void		ft_eval_char(t_pfconv *current, char c)
+void		ft_eval_char(t_pfconv *current, int c)
 {
 	if (current)
 	{
 		current->string = ft_strnew(1);
 		current->string[0] = c;
+		printf("int is %d, char is %c\n", c, current->string[0]);
 	}
 }
 
