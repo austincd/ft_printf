@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 02:02:12 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 02:03:18 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_printf(char *str, ...)
 	char				*new;
 	int					after;
 
-	printf("::%s\n:\n", str);
+//	printf("::%s\n:\n", str);
 	after = 0;
 	va_start(args, str);
 	new = NULL;
@@ -38,7 +38,7 @@ int		ft_printf(char *str, ...)
 //		printf("width %d, precision %d", conversions[index]->width, conversions[index]->precision);
 //		printf("type %c\norig %s\n", conversions[index]->type, conversions[index]->orig);
 		ft_import_type(conversions[index]);
-		printf("type %c\n import_type %c\n", conversions[index]->type, conversions[index]->import_type);
+//		printf("type %c\n import_type %c\n", conversions[index]->type, conversions[index]->import_type);
 		if (ft_strchr(types[0], conversions[index]->import_type))
 			ft_printf_int(conversions[index], args);
 		else if (ft_strchr(types[1], conversions[index]->import_type))
@@ -54,7 +54,7 @@ int		ft_printf(char *str, ...)
 		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
 	}
-//	write(1, new, chars);
+	write(1, new, chars);
 	free(new);
 	return (chars);
 }
