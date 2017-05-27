@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:33:06 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 01:35:13 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_printf(char *str, ...)
 	char				*new;
 	int					after;
 
-//	printf("%s\n\n\n\n", str);
+	printf("%s\n\n\n\n", str);
 	after = 0;
 	va_start(args, str);
 	new = NULL;
@@ -53,7 +53,7 @@ int		ft_printf(char *str, ...)
 		after += ft_find_replace_after(&new, conversions[index]->orig, conversions[index]->string, after);
 		++index;
 	}
-	write(1, new, chars);
+//	write(1, new, chars);
 	free(new);
 	return (chars);
 }
