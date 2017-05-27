@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 06:37:13 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 00:15:45 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 00:17:30 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_printf(char *str, ...)
 		ft_find_replace(&new, conversions[index]->orig, conversions[index]->string);
 		++index;
 	}
-	write(1, new, chars);
+//	write(1, new, chars);
 	free(new);
 	return (chars);
 }
