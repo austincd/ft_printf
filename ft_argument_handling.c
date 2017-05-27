@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 01:19:21 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 02:19:47 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,8 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 					new->import_type = '2';
 				else if (ft_strchr(types[3], new->type))
 					new->import_type = 'u';
+				else if (ft_strchr(types[5], new->type))
+					new->length = 2;
 				return (ptr + 1);
 			}
 		}
@@ -235,13 +237,14 @@ char	**ft_build_types(void)
 	char **types;
 	int	index;
 
-	index = 5;
+	index = 6;
 	types = (char**)ft_memalloc(sizeof(char*) * index);
 	types[0] = ft_strdup("sSpPdDiIoOuUxXcCeEfFgGaAn%");
 	types[1] = ft_strdup("di");
 	types[2] = ft_strdup("fega");
 	types[3] = ft_strdup("uxo");
 	types[4] = ft_strdup("scpn%");
+	types[5] = ft_strdup("DOU");
 	return (types);
 }
 
