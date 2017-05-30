@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 06:54:55 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/27 07:04:07 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ int			ft_printf(char *str, ...)
 	t_slist		*list;
 
 	chars = 0;
+	int counter = 0;
 	va_start(args, str);
 	list = NULL;
 	ft_parse_for_conversions(ft_strdup(str), &list);
 	ft_evaluate_conversions(list, args);
 	while (list)
 	{
-		chars += write(1, (list->string), list->size);
+//		chars += write(1, (list->string), list->size);
+		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
+		++counter;
 		list = list->next;
 	}
 	return (chars);
