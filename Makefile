@@ -12,7 +12,7 @@
 
 NAME=libftprintf.a
 
-FLAGS= -c -Wall -Wextra -Werror
+FLAGS= -c -g -Wall -Wextra -Werror
 
 INCLUDES= ./
 
