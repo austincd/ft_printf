@@ -94,7 +94,7 @@ void		ft_eval_char(t_pfconv *current, unsigned int c)
 	{
 		current->string = ft_strnew(1);
 		current->string[0] = (unsigned char)c;
-		printf("int is %u, char is %u %c\n", c, (unsigned char)c, current->string[0]);
+//		printf("int is %u, char is %u %c\n", c, (unsigned char)c, current->string[0]);
 	}
 }
 
