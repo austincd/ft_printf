@@ -26,7 +26,8 @@ int			ft_printf(char *str, ...)
 	ft_evaluate_conversions(list, args);
 	while (list)
 	{
-		chars += write(1, (list->string), list->size);
+		printf("%s\n", list->string);
+		//chars += write(1, (list->string), list->size);
 //		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
 		++counter;
 		list = list->next;
