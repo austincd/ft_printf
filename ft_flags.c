@@ -15,12 +15,12 @@
 void	ft_width(t_pfconv *current)
 {
 	char			*tmp;
-	char			*new;
+//	char			*new;
 	unsigned int	diff;
 
 	diff = current->width - current->chars;
 	tmp = NULL;
-	new = NULL;
+//	new = NULL;
 	if (current)
 	{
 		if (current->string && current->width >= 0)

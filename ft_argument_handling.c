@@ -118,9 +118,7 @@ char *ft_parse_flags(char *str, t_pfconv *new)
 char	*ft_parse_width(char *str, t_pfconv *new)
 {
 	char	*ptr;
-	int		index;
 
-	index = 0;
 	ptr = str;
 	if (new)
 	{
@@ -149,10 +147,8 @@ char	*ft_parse_width(char *str, t_pfconv *new)
 char	*ft_parse_precision(char *str, t_pfconv *new)
 {
 	char	*ptr;
-	int		index;
 
 	ptr = str;
-	index = 0;
 	if (new)
 	{
 		new->precision = -1;
@@ -181,10 +177,8 @@ char	*ft_parse_precision(char *str, t_pfconv *new)
 char	*ft_parse_length(char *str, t_pfconv *new, char **options)
 {
 	char	*ptr;
-	int		*index;
 
 	ptr = str;
-	index = 0;
 	if (new)
 	{
 		new->length = -1;
