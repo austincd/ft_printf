@@ -14,10 +14,8 @@
 
 char	*ft_strndup(char *str, long long len)
 {
-	long long	counter;
 	char		*new;
 
-	counter = 0;
 	new = NULL;
 	new = ft_strnew(len);
 	if (new)

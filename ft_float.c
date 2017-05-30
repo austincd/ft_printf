@@ -46,10 +46,10 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 {
 	char	*new;
 	char	*prefix;
-	char	**invalid;
+//	char	**invalid;
 
 	prefix = ft_strdup("0x");
-	invalid = ft_float_build_invalids(current->capitalized);
+//	invalid = ft_float_build_invalids(current->capitalized);
 	if (current->capitalized)
 		prefix[1] = 'X';
 	if (base == 16)
