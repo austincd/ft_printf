@@ -206,7 +206,7 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 				++ptr;
 			if (ft_strchr(types[0], *ptr))
 			{
-				new->type = ft_lowercase(*ptr);
+				new->type = *ptr;
 				if (new->type == 'a' || new->type == 'x')
 					new->base = 16;
 				if (new->type != *ptr)
