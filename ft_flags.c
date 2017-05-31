@@ -46,12 +46,37 @@ void	ft_plus(t_pfconv *current)
 	{
 		if (current->flags[1] && ft_strchr(ints, current->type))
 		{
-			if (!ft_strchr(current->string, '-'))
+			if (!ft_strchr(current->string, '-') && current->width < (int)ft_strlen(current->string))
 			{
 				temp = current->string;
 				current->string = ft_strjoin("+", current->string);
+				current->chars = ft_strlen(current->string);
 				free (temp);
 			}
+			else if (!ft_strchr(current->string, '-') && current->width == (int)ft_strlen(current->string))
+			{
+				current->string[0] = '+';
+			}
+		}
+	}
+}
+
+void	ft_zero(t_pfconv *current)
+{
+	char ints[5];
+	char *temp;
+
+	ints[0] = 'i';
+	ints[1] = 'I';
+	ints[2] = 'd';
+	ints[3] = 'D';
+	ints[4] = 0;
+	if (current)
+	{
+		if (current->flags[3] && ft_strchr(ints, current->type))
+		{
+			while ((temp = ft_strchr(current->string, ' ')))
+				*temp = '0';
 		}
 	}
 }
