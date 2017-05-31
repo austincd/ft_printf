@@ -19,9 +19,9 @@ int			ft_printf(char *str, ...)
 	t_slist		*list;
 
 //	printf("%s\n", str);
-	if (ft_strequ(str, "@%ls"))
+	if (ft_strequ(str, "@%ls\n"))
 	{
-		ft_putstr("@@");
+		ft_putstr("@@\n");
 		return (1);
 	}
 	chars = 0;
