@@ -52,11 +52,13 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 	wc = (wchar_t*)c;
 	while (wc[index])
 		++index;
+//	printf("index is %d\n", index);
 	current->string = (char*)ft_memalloc(sizeof(wchar_t) * (index + 1));
-//	printf("str is %s\n", c);
 //	current->string = ft_strdup(c);
 	current->chars = index * sizeof(wchar_t);
 	ft_memcpy(current->string, wc, current->chars);
+//	printf("str is %ls\n", (wchar_t*)current->string);
+//	printf("%i\n", current->chars);
 	return (current->chars);
 }
 
