@@ -44,9 +44,19 @@ static int	ft_string(t_pfconv *current, char *c)
 
 static int	ft_string_wide(t_pfconv *current, char *c)
 {
+	wchar_t	*wc;
+//	int		size;
+	int		index;
+
+	index = 0;
+	wc = (wchar_t*)c;
+	while (wc[index])
+		++index;
+	current->string = (char*)ft_memalloc(sizeof(wchar_t) * (index + 1));
 //	printf("str is %s\n", c);
-	current->string = ft_strdup(c);
-	current->chars = ft_strlen(current->string);
+//	current->string = ft_strdup(c);
+	current->chars = index * sizeof(wchar_t);
+	ft_memcpy(current->string, wc, current->chars);
 	return (current->chars);
 }
 
@@ -55,11 +65,11 @@ int		ft_other_types(t_pfconv *current, va_list args)
 //	printf("type %c\n", current->type);
 	if (ft_lowercase(current->type) == 'c')
 		ft_char(current, va_arg(args, int));
-//	if (current->type == 'C')
-//		ft_char_wide(current, va_arg(args, int));
+	else if (current->type == 'C')
+		ft_char_wide(current, va_arg(args, int));
 	if (current->type == 's')
 		ft_string(current, va_arg(args, char*));
-	if (current->type == 'S')
+	if (current->type == 'S' || (current->type == 's' && current->length == 2))
 		ft_string_wide(current, va_arg(args, char*));
 	if (current->type == '%')
 		ft_char(current, '%');
