@@ -91,7 +91,7 @@ char *ft_parse_flags(char *str, t_pfconv *new)
 	int		index;
 
 	index = 0;
-	flags = ft_strdup("-==0#");//"+ "
+	flags = ft_strdup("-+ 0#");//"+ "
 	ptr = str;
 	if (new)
 	{

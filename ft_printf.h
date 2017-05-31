@@ -74,5 +74,6 @@ int			ft_unsigned_integer_types(t_pfconv *current, va_list args);
 int			ft_floating_types(t_pfconv *current, va_list args);
 int			ft_other_types(t_pfconv *current, va_list args);
 int			ft_ptr(t_pfconv *current, va_list args);
+void		ft_plus(t_pfconv *current);
 
 #endif

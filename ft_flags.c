@@ -32,6 +32,29 @@ void	ft_hash(t_pfconv *current)
 		}
 	}
 }
+void	ft_plus(t_pfconv *current)
+{
+	char ints[5];
+	char *temp;
+
+	ints[0] = 'i';
+	ints[1] = 'I';
+	ints[2] = 'd';
+	ints[3] = 'D';
+	ints[4] = 0;
+	if (current)
+	{
+		if (current->flags[1] && ft_strchr(ints, current->type))
+		{
+			if (!ft_strchr(current->string, '-'))
+			{
+				temp = current->string;
+				current->string = ft_strjoin("+", current->string);
+				free (temp);
+			}
+		}
+	}
+}
 
 void	ft_width(t_pfconv *current)
 {
