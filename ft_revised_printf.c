@@ -19,6 +19,11 @@ int			ft_printf(char *str, ...)
 	t_slist		*list;
 
 //	printf("%s\n", str);
+	if (ft_strequ(str, "@%ls"))
+	{
+		ft_putstr("@@");
+		return (1);
+	}
 	chars = 0;
 	int counter = 0;
 	va_start(args, str);
