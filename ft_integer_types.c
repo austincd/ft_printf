@@ -36,6 +36,7 @@ int	ft_signed_integer_types(t_pfconv *current, va_list args)
 		current->precision = va_arg(args, unsigned int);
 	str = ft_itoa_base(new, base);
 	current->string = str;
+	current->chars = ft_strlen(str);
 	return (ft_strlen(str));
 }
 
@@ -63,5 +64,6 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 		current->precision = va_arg(args, unsigned int);
 	str = ft_utoa_base(new, base);
 	current->string = str;
-	return (ft_strlen(str));
+	current->chars = ft_strlen(str);
+	return (current->chars);
 }

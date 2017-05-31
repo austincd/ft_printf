@@ -54,5 +54,6 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 		current->string = ft_float_standard(current, new, base);
 	else if (ft_lowercase(current->type) == 'a' || ft_lowercase(current->type) == 'f')
 		current->string = ft_float_normal(current, new, base);
+	current->chars = ft_strlen(current->string);
 	return (ft_strlen(current->string));
 }
