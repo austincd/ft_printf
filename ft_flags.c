@@ -62,6 +62,7 @@ void	ft_width(t_pfconv *current)
 				}
 				free(current->string);
 				current->string = tmp;
+				current->chars = ft_strlen(current->string);
 			}
 		}
 	}

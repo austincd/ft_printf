@@ -62,7 +62,8 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 				 ft_other_types(list->conversion, args);
 			if (list->conversion->type == 'p' || list->conversion->type == 'P')
 				ft_ptr(list->conversion, args);
-			ft_width(list->conversion);
+			if (list->conversion->type != 'c')
+				ft_width(list->conversion);
 			list->string = list->conversion->string;
 			list->size = list->conversion->chars;
 		}
