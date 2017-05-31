@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/31 15:02:00 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/31 15:05:53 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int			ft_printf(char *str, ...)
 	va_list		args;
 	t_slist		*list;
 
-//	printf("%s\n", str);
-	if (ft_strequ(str, "%ls"))
+	printf("%s\n", str);
+/*	if (ft_strequ(str, "%ls"))
 	{
 		ft_putstr("@@");
 		return (1);
@@ -40,7 +40,7 @@ int			ft_printf(char *str, ...)
 //		printf("list entry %d\n%p\n%s\n\n", counter, list, list->string);
 		++counter;
 		list = list->next;
-	}
+	}*/
 	return (chars);
 }
 
