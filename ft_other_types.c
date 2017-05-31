@@ -35,6 +35,7 @@ static int	ft_char_wide(t_pfconv *current, unsigned int c)
 
 static int	ft_string(t_pfconv *current, char *c)
 {
+	printf("str is %s\n", c);
 	current->string = ft_strdup(c);
 	current->chars = ft_strlen(current->string);
 	return (current->chars);

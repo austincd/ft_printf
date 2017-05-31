@@ -207,6 +207,7 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 			if (ft_strchr(types[0], *ptr))
 			{
 				new->type = *ptr;
+				printf("type is %c\n", new->type); 
 				if (new->type == 'a' || new->type == 'x')
 					new->base = 16;
 				if (new->type != *ptr)
