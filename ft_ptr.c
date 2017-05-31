@@ -27,9 +27,10 @@ int		ft_ptr(t_pfconv *current, va_list args)
 		if (current->precision == -2)
 			current->precision = va_arg(args, int);
 		temp = ft_utoa_base((unsigned long long)ptr, 16);
+		current->string = ft_strlowcase(ft_strjoin("0x", temp));
 		if (temp)
 			free(temp);
-		current->string = ft_strjoin("0x", temp);
+		current->chars = ft_strlen(current->string);
 	}
 	return (ft_strlen(current->string));
 }

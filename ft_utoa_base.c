@@ -32,7 +32,6 @@ static void	ft_utoa_internal(char *str, unsigned long long num, unsigned int bas
 	char	digits[17];
 
 	ft_strlcpy(digits, "0123456789ABCDEF", 17);
-	printf("%s\n", str);
 	if (str)
 	{
 		if (num < base)
