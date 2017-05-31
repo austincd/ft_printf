@@ -18,7 +18,7 @@ int			ft_printf(char *str, ...)
 	va_list		args;
 	t_slist		*list;
 
-	printf("%s\n", str);
+//	printf("%s\n", str);
 	chars = 0;
 	int counter = 0;
 	va_start(args, str);
@@ -27,9 +27,10 @@ int			ft_printf(char *str, ...)
 	ft_evaluate_conversions(list, args);	
 	while (list)
 	{
-	//	if (list->string)
-	//		ft_putstr(list->string);//printf("%s\n", list->string);
-		//chars += write(1, (list->string), list->size);
+		//if (list->string)
+		//printf("size is %llu\n", list->size);
+//		ft_putstr(list->string);//printf("%s\n", list->string);
+		chars += write(1, (list->string), list->size);
 //		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
 		++counter;
 		list = list->next;
@@ -64,6 +65,8 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 			list->string = list->conversion->string;
 			list->size = list->conversion->chars;
 		}
+		else
+			list->size = ft_strlen(list->string);
 		++counter;
 		list = list->next;
 	}

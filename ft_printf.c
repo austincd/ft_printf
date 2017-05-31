@@ -124,13 +124,18 @@ void	ft_parse_for_conversions(char *str, t_slist **first)
 	while (str)
 	{
 		entry = ft_new_tslist(entry, NULL, 0);
+//		printf("%s\n", str);
 		if (!*first)
 			*first = entry;
 		if (*str == '%')
+		{
 			entry->conversion = ft_conversion_parsing(&str);
+			++str;
+		}
 		else
 		{
-			entry->string = ft_strcdup(str, '%');
+			entry->string = ft_strtcdup(str, '%');
+//			printf("entry string is %s\n", entry->string);
 			str = ft_strchr(str, '%');
 		}
 	}

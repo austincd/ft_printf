@@ -134,5 +134,6 @@ void			ft_write_file(int fd, void *data, long long size);
 unsigned long	ft_char_expand(unsigned long c);
 void			ft_charcat(char *str, char c);
 char			*ft_utoa_base(unsigned long long num, unsigned int base);
+char			*ft_strtcdup(char *str, char c);
 
 #endif

@@ -46,7 +46,7 @@ ft_putcutf8_fd.c ft_restrcat.c ft_restrccat.c ft_longlongcat.c \
 ft_open_file.c ft_next_square.c ft_next_sqrt.c ft_how_many_char.c \
 ft_strequ_multi.c ft_find_replace.c ft_lowercase.c ft_read_file.c \
 ft_get_next_n_lines.c get_next_line.c ft_itoa_base.c ft_itoa_float.c \
-ft_char_expand.c ft_utoa_base.c ft_charcat.c ft_strcdup.c 
+ft_char_expand.c ft_utoa_base.c ft_charcat.c ft_strcdup.c ft_strtcdup.c 
 
 SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c \
 ft_import_type.c ft_flags.c ft_revised_printf.c ft_tslist.c ft_integer_types.c \
@@ -83,7 +83,8 @@ ft_utf8width.o ft_restrcat.o ft_restrccat.o ft_longlongcat.o \
 ft_open_file.o ft_next_square.o ft_next_sqrt.o ft_how_many_char.o \
 ft_strequ_multi.o ft_find_replace.o ft_lowercase.o ft_read_file.o \
 ft_get_next_n_lines.o get_next_line.o ft_itoa_base.o ft_itoa_float.o \
-ft_char_expand.o ft_utoa_base.o ft_charcat.o ft_strcdup.o ft_strndup.o 
+ft_char_expand.o ft_utoa_base.o ft_charcat.o ft_strcdup.o ft_strndup.o \
+ft_strtcdup.o 
 
 OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o \
 ft_import_type.o ft_flags.o ft_revised_printf.o ft_tslist.o ft_integer_types.o \
