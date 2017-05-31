@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 20:09:52 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/31 15:02:24 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,35 @@ void	ft_hash(t_pfconv *current)
 		}
 	}
 }
+void	ft_space(t_pfconv *current)
+{
+	char ints[5];
+	char *temp;
+
+	ints[0] = 'i';
+	ints[1] = 'I';
+	ints[2] = 'd';
+	ints[3] = 'D';
+	ints[4] = 0;
+	if (current)
+	{
+		if (!current->flags[1] && current->flags[2] && ft_strchr(ints, current->type))
+		{
+			if (!ft_strchr(current->string, '-') && current->width < (int)ft_strlen(current->string))
+			{
+				temp = current->string;
+				current->string = ft_strjoin(" ", current->string);
+				current->chars = ft_strlen(current->string);
+				free (temp);
+			}
+			else if (!ft_strchr(current->string, '-') && current->width == (int)ft_strlen(current->string))
+			{
+				current->string[0] = ' ';
+			}
+		}
+	}
+}
+
 void	ft_plus(t_pfconv *current)
 {
 	char ints[5];

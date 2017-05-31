@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 20:30:04 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/31 15:00:38 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int			ft_other_types(t_pfconv *current, va_list args);
 int			ft_ptr(t_pfconv *current, va_list args);
 void		ft_plus(t_pfconv *current);
 void		ft_zero(t_pfconv *current);
+void		ft_space(t_pfconv *current);
 
 #endif
