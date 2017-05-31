@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 14:20:54 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/31 15:13:20 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	if (current->precision == -2)
 		current->precision = va_arg(args, unsigned int);
 	str = ft_utoa_base(new, base);
-	current->string = str;
+	current->string = ft_strlowcase(str);
 	current->chars = ft_strlen(str);
 	return (current->chars);
 }
