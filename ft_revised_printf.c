@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/31 15:09:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/31 15:10:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			ft_printf(char *str, ...)
 	va_list		args;
 	t_slist		*list;
 
-	printf("%s\n", str);
+//	printf("%s\n", str);
 	if (ft_strequ(str, "%ls"))
 	{
 		ft_putstr("@@");
