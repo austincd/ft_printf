@@ -130,7 +130,6 @@ void	ft_parse_for_conversions(char *str, t_slist **first)
 		if (*str == '%')
 		{
 			entry->conversion = ft_conversion_parsing(&str);
-			++str;
 		}
 		else
 		{
