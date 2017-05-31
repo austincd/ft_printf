@@ -53,10 +53,10 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 int		ft_other_types(t_pfconv *current, va_list args)
 {
 //	printf("type %c\n", current->type);
-	if (current->type == 'c')
+	if (ft_lowercase(current->type) == 'c')
 		ft_char(current, va_arg(args, int));
-	if (current->type == 'C')
-		ft_char_wide(current, va_arg(args, int));
+//	if (current->type == 'C')
+//		ft_char_wide(current, va_arg(args, int));
 	if (current->type == 's')
 		ft_string(current, va_arg(args, char*));
 	if (current->type == 'S')
