@@ -28,10 +28,10 @@ int			ft_printf(char *str, ...)
 	while (list)
 	{
 		//if (list->string)
-		//printf("size is %llu\n", list->size);
+//		printf("size is %llu\n", list->size);
 //		ft_putstr(list->string);//printf("%s\n", list->string);
 		chars += write(1, (list->string), list->size);
-//		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
+//		printf("list entry %d\n%p\n%s\n\n", counter, list, list->string);
 		++counter;
 		list = list->next;
 	}

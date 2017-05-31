@@ -24,7 +24,7 @@ int	ft_signed_integer_types(t_pfconv *current, va_list args)
 	if (current->type == 'o' || current->type == 'O')
 		base = 8;
 	new = 0;
-	if (current->length == 0 || current->length == 1)
+	if (current->length >= -1 && current->length <= 1)
 		new = va_arg(args, int);
 	if (current->length == 2)
 		new = va_arg(args, long int);
@@ -52,7 +52,7 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	if (current->type == 'o' || current->type == 'O')
 		base = 8;
 	new = 0;
-	if (current->length == 0 || current->length == 1)
+	if (current->length >= -1 && current->length <= 1)
 		new = va_arg(args, unsigned int);
 	if (current->length == 2)
 		new = va_arg(args, unsigned long int);

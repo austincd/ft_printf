@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-	char *str = ft_strdup("Kashim a %c histoires à raconter");
-	ft_printf(str, '\0');
+	char *str = ft_strdup("Kashim a %d hi%d %istoires à raconter\n");
+	ft_printf(str, 100, 200, 300);
 	return (1);
 }
