@@ -23,10 +23,10 @@ void		ft_eval_num(t_pfconv *current, long long num)
 	str = NULL;
 	if (current)
 	{
-		if (current->flags[1] && num >= 0)
-			str = ft_strdup ("+");
-		else if (current->flags[2])
-			str = ft_strdup (" ");
+//		if (current->flags[1] && num >= 0)
+//			str = ft_strdup ("+");
+//		else if (current->flags[2])
+//			str = ft_strdup (" ");
 		ft_restrcat(&str, ft_itoa_base(num, current->base));
 		current->string = str;
 		if (str)
