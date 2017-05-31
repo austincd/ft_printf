@@ -18,16 +18,17 @@ int			ft_printf(char *str, ...)
 	va_list		args;
 	t_slist		*list;
 
+	printf("%s\n", str);
 	chars = 0;
 	int counter = 0;
 	va_start(args, str);
 	list = NULL;
 	ft_parse_for_conversions(ft_strdup(str), &list);
-	ft_evaluate_conversions(list, args);
+	ft_evaluate_conversions(list, args);	
 	while (list)
 	{
-		if (list->string)
-			ft_putstr(list->string);//printf("%s\n", list->string);
+	//	if (list->string)
+	//		ft_putstr(list->string);//printf("%s\n", list->string);
 		//chars += write(1, (list->string), list->size);
 //		printf("list entry %d\n%p\n%s\n%llu\n", counter, list, list->string, list->size);
 		++counter;
