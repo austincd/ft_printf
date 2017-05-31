@@ -42,7 +42,7 @@ static int	ft_string(t_pfconv *current, char *c)
 
 static int	ft_string_wide(t_pfconv *current, char *c)
 {
-	printf("%str is S\n", c);
+	printf("str is %s\n", c);
 	current->string = ft_strdup(c);
 	current->chars = ft_strlen(current->string);
 	return (current->chars);
@@ -50,6 +50,7 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 
 int		ft_other_types(t_pfconv *current, va_list args)
 {
+	printf("type %c\n", current->type);
 	if (current->type == 'c')
 		ft_char(current, va_arg(args, int));
 	if (current->type == 'C')
