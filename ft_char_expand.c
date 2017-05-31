@@ -98,7 +98,6 @@ static unsigned long	ft_one(unsigned int c)
 
 unsigned long	ft_char_expand(unsigned long c)
 {
-	int				char_length;
 	int				full_char;
 	int				index;
 
@@ -106,10 +105,9 @@ unsigned long	ft_char_expand(unsigned long c)
 	full_char = c;
 	if (index)
 	{
-		char_length = index + 1;
 		if (c >= 65536 && c <= 524287)
 			full_char = ft_three(c);
-			if (c >= 2048 && c <= 65535)
+		if (c >= 2048 && c <= 65535)
 			full_char = ft_two(c);
 		if (c >= 128 && c <= 2047)
 			full_char = ft_one(c);
