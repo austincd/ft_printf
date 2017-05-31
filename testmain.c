@@ -1,16 +1,9 @@
-#include "libft/libft.h"
-
-int ft_find_replace(char **p_big, char *p_little, char *p_new);
+#include "ft_printf.h"
 
 int main(int argc, char **argv)
 {
-	char *str;
-	if (argc == 4)
-	{
-		str = ft_strdup(argv[1]);
-		ft_putendl(str);
-		ft_find_replace(&str, argv[2], argv[3]);
-		ft_putendl(str);
-	}
+	char *str = ft_strdup("hello%s");
+	char *str2 = ft_strdup("nonono\n");
+	ft_printf(str, str2);
 	return (1);
 }
