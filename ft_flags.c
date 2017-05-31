@@ -42,6 +42,7 @@ void	ft_width(t_pfconv *current)
 	diff = current->width - current->chars;
 	tmp = NULL;
 //	new = NULL;
+	printf("yo yo\n");
 	if (current)
 	{
 		if (current->string && current->width >= 0)
