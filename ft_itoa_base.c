@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/27 03:13:23 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 13:45:20 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_itoa_internal(char *str, long long num, int base)
 {
 	char	digits[17];
 
-	ft_strlcpy(digits, "0123456789ABCDE", 17);
+	ft_strlcpy(digits, "0123456789ABCDEF", 17);
 	if (str)
 	{
 		if (num < base)

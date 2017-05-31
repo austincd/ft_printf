@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 07:04:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 15:28:09 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,33 @@ int			ft_printf(char *str, ...)
 	return (chars);
 }
 
-int			ft_evaluate_conversions(t_slist *list, va_list args)
+int				ft_evaluate_conversions(t_slist *list, va_list args)
+{
+	char	*types[5];
+	int		counter;
+
+	types[0] = ft_strdup("uxoXO");
+	types[1] = ft_strdup("diDI");
+	types[2] = ft_strdup("fegaFEGA");
+	types[3] = ft_strdup("scn%SCN");
+	counter = 0;
+	while (list)
+	{
+		if (list->conversion)
+		{
+			if (ft_strchr(types[0], list->conversion->type))
+				 ft_unsigned_integer_types(list->conversion, args);
+			if (ft_strchr(types[1], list->conversion->type))
+				 ft_signed_integer_types(list->conversion, args);
+			if (ft_strchr(types[2], list->conversion->type))
+				 ft_floating_types(list->conversion, args);
+			if (ft_strchr(types[3], list->conversion->type))
+				 ft_other_types(list->conversion, args);
+		}
+	}
+}
+
+/*int			ft_evaluate_conversions(t_slist *list, va_list args)
 {
 	char	*types[3];
 	int		counter;
@@ -65,5 +91,5 @@ int			ft_evaluate_conversions(t_slist *list, va_list args)
 		++counter;
 	}
 	return (counter);
-}
+}*/
 

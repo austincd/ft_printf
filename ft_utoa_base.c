@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/27 03:13:59 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 13:44:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void	ft_utoa_internal(char *str, unsigned long long num, unsigned int bas
 {
 	char	digits[17];
 
-	ft_strlcpy(digits, "0123456789ABCDE", 17);
+	ft_strlcpy(digits, "0123456789ABCDEF", 17);
+	printf("%s\n", str);
 	if (str)
 	{
 		if (num < base)

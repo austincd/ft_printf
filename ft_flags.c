@@ -6,11 +6,32 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/26 22:13:06 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 13:56:06 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_hash(t_pfconv *current)
+{
+	char	*temp;
+
+	temp = NULL;
+	if (current->flags[4])
+	{
+		if (current->type == 'o')
+			temp = ft_strdup("0", current->string);
+		if (current->type == 'x')
+			temp = ft_strdup("0x", current->string);
+		if (current->type == 'X')
+			temp = ft_strdup("0X", current->string);
+		if (temp)
+		{
+			free(current->string);
+			current->string = temp;
+		}
+	}
+}
 
 void	ft_width(t_pfconv *current)
 {
