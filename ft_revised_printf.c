@@ -31,8 +31,8 @@ int			ft_printf(char *str, ...)
 //		printf("size is %llu\n", list->size);
 //		ft_putstr(list->string);//printf("%s\n", list->string);
 		chars += write(1, (list->string), list->size);
-		ft_putstr(list->string);
-		printf("list entry %d\n%p\n%s\n\n", counter, list, list->string);
+//		ft_putstr(list->string);
+//		printf("list entry %d\n%p\n%s\n\n", counter, list, list->string);
 		++counter;
 		list = list->next;
 	}
