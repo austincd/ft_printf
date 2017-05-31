@@ -10,7 +10,7 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME=libft.a
+NAME=libftprintf.a
 
 FLAGS= -c -Wall -Wextra -Werror
 
