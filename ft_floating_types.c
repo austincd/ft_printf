@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 16:18:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 20:45:28 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 	base = 10;
 	new = 0;
 	if (ft_lowercase(current->type) == 'a')
-		base == 16;
+		base = 16;
 	if (current->length == 4)
 		new = va_arg(args, double);
 	else
@@ -49,10 +49,10 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 	if (current->precision == -2)
 		current->precision = va_arg(args, int);
 	if (ft_lowercase(current->type) == 'g')
-		ft_g(current, num);
+		ft_g(current, new);
 	else if (ft_lowercase(current->type) == 'e')
-		current->string = ft_float_standard(current, num, base);
+		current->string = ft_float_standard(current, new, base);
 	else if (ft_lowercase(current->type) == 'a' || ft_lowercase(current->type) == 'f')
-		current->string = ft_float_normal(current, num, base);
+		current->string = ft_float_normal(current, new, base);
 	return (ft_strlen(current->string));
 }

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 15:28:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 20:29:05 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,15 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 				 ft_floating_types(list->conversion, args);
 			if (ft_strchr(types[3], list->conversion->type))
 				 ft_other_types(list->conversion, args);
+			if (list->conversion->type == 'p' || list->conversion->type == 'P')
+				ft_ptr(list->conversion, args);
+			list->string = list->conversion->string;
+			list->size = list->conversion->chars;
 		}
+		++counter;
+		list = list->next;
 	}
+	return (counter);
 }
 
 /*int			ft_evaluate_conversions(t_slist *list, va_list args)

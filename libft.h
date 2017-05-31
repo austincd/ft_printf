@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 03:23:06 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 20:41:33 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_itoa_base(long long n, int base);
-char			*ft_utoa_base(unsigned long long, unsigned int base);
 char			*ft_itoa_float(long double num, int base);
 void			ft_putchar(unsigned int c);
 void			ft_putstr(char const *s);
@@ -122,8 +121,6 @@ long long		ft_next_sqrt(long long number);
 long long		ft_how_many_char(char *str, char c);
 int				ft_strequ_multi(char *str, char **table, int num);
 int				ft_find_replace(char **p_big, char *p_little, char *p_new);
-int				ft_find_replace_char(char **p_big, char *p_little, char c, unsigned int after);
-int				ft_find_replace_after(char **str, char *to_find, char *to_put, unsigned int after);
 char			ft_lowercase(char c);
 void			*ft_read_file(int fd, long long offset, long long size);
 char			*ft_strndup(char *str, long long len);
@@ -134,6 +131,8 @@ long long shift);
 void			ft_make_room(long long fd, long long to_add, long long offset);
 int				ft_create_file(char *filename);
 void			ft_write_file(int fd, void *data, long long size);
-void			ft_charcat(char *str, unsigned int c);
+unsigned long	ft_char_expand(unsigned long c);
+void			ft_charcat(char *str, char c);
+char			*ft_utoa_base(unsigned long long num, unsigned int base);
 
 #endif

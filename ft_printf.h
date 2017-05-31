@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 06:53:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/05/30 20:30:04 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,10 @@ void		ft_width(t_pfconv *current);
 t_slist		*ft_new_tslist(t_slist *previous, void *content, unsigned long long size);
 void		ft_parse_for_conversions(char *str, t_slist **first);
 int			ft_evaluate_conversions(t_slist *first, va_list args);
+int			ft_signed_integer_types(t_pfconv *current, va_list args);
+int			ft_unsigned_integer_types(t_pfconv *current, va_list args);
+int			ft_floating_types(t_pfconv *current, va_list args);
+int			ft_other_types(t_pfconv *current, va_list args);
+int			ft_ptr(t_pfconv *current, va_list args);
 
 #endif
