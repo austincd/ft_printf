@@ -18,7 +18,7 @@ int			ft_printf(char *str, ...)
 	va_list		args;
 	t_slist		*list;
 
-//	printf("%s\n", str);
+	printf("%s\n", str);
 	chars = 0;
 	int counter = 0;
 	va_start(args, str);
