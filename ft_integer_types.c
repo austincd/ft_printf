@@ -65,6 +65,8 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	str = ft_utoa_base(new, base);
 	if (ft_tolower(current->type) == current->type)
 		current->string = ft_strlowcase(str);
+	else
+		current->string = str;
 	current->chars = ft_strlen(str);
 	return (current->chars);
 }
