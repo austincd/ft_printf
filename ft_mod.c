@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:40:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 13:44:45 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ void	ft_precision(t_pfconv *current)
 	if (current)
 	{
 		if (ft_strchr(strs, current->type))
+		{
 			ft_precision_string(current);
+			current->chars = ft_strlen(current->string);
+		}
 		else if (ft_strchr(floats, current->type))
+		{
 			ft_precision_float(current, current->precision);
+			current->chars = ft_strlen(current->string);
+		}
 	}
 	free(strs);
 	free(floats);
