@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:29 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:03:08 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:50:13 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	ft_precision_float(t_pfconv *current, unsigned int precision)
 				length = ft_strlen(ptr);
 				if (length < precision)
 				{
-					ptr = ft_strnew(precision - length);
+					ptr = ft_strnew((precision - length) + 1);
 					if (ptr)
 					{
-						ft_memset(ptr, '0', precision - length);
+						ft_memset(ptr, '0', (precision - length) + 1);
 						ft_restrcat(&(current->string), ptr);
 					}
 				}
