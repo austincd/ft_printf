@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/05/30 20:46:03 by adaly            ###   ########.fr        #
+#    Updated: 2017/06/01 13:38:33 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -50,7 +50,7 @@ ft_char_expand.c ft_utoa_base.c ft_charcat.c ft_strcdup.c ft_strtcdup.c
 
 SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c \
 ft_import_type.c ft_flags.c ft_revised_printf.c ft_tslist.c ft_integer_types.c \
-ft_floating_types.c ft_other_types.c ft_ptr.c ft_strndup.c
+ft_floating_types.c ft_other_types.c ft_ptr.c ft_strndup.c ft_mod.c ft_precision.c \
 
 OBJECTS1= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o \
@@ -88,7 +88,7 @@ ft_strtcdup.o
 
 OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o \
 ft_import_type.o ft_flags.o ft_revised_printf.o ft_tslist.o ft_integer_types.o \
-ft_floating_types.o ft_other_types.o ft_ptr.o
+ft_floating_types.o ft_other_types.o ft_ptr.o ft_mod.o ft_precision.o
 
 all: $(NAME)
 

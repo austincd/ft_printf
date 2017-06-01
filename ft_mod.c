@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_mod.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
+/*   Updated: 2017/06/01 13:40:07 by adaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_precision(t_pfconv *current)
@@ -12,55 +24,41 @@ void	ft_precision(t_pfconv *current)
 		if (ft_strchr(strs, current->type))
 			ft_precision_string(current);
 		else if (ft_strchr(floats, current->type))
-			ft_precision_float(current);
+			ft_precision_float(current, current->precision);
 	}
 	free(strs);
 	free(floats);
 }
 
-void	ft_precision_string(t_pfconv *current)
+void	ft_width(t_pfconv *current)
 {
-	char 				*str;
-	unsigned long long	length;
+	char			*tmp;
+//  char			*new;
+	unsigned int	diff;
 
-	str = NULL;
-	length = 0;
+	diff = current->width - current->chars;
+	tmp = NULL;
+//  new = NULL;
 	if (current)
 	{
-		str = current->string;
-		if (str && current->precision >= 0)
+		if (current->string && current->width >= 0)
 		{
-			length = ft_strlen(str);
-			if (length > current->precision)
-				str[current->precision] = 0;
-		}
-	}
-}
-
-void	ft_precision_float(t_pfconv *current, unsigned int precision)
-{
-	unsigned int		length;
-	char				*ptr;
-
-	ptr = NULL;
-	if (current)
-	{
-		if (current->string && current->precision >= 0)
-		{
-			if ((ptr = ft_strchr(current->string, '.')))
+			if (current->chars < current->width)
 			{
-				length = ft_strlen(ptr);
-				if (length < precision)
+				tmp = ft_strnew(current->width);
+				if (current->flags[0] == 1)
 				{
-					ptr = ft_strnew(precision - length);
-					if (ptr)
-					{
-						ft_memset(ptr, '0', precision - length);
-						ft_restrcat(&(current->string), ptr);
-					}
+					ft_memcpy(tmp, current->string, current->chars);
+					ft_memset(tmp + current->chars, ' ', diff);
 				}
 				else
-					ptr[precision + 1] = 0;
+				{
+					ft_memset(tmp, ' ', diff);
+					ft_memcpy(tmp + diff, current->string, current->chars);
+				}
+				free(current->string);
+				current->string = tmp;
+				current->chars = ft_strlen(current->string);
 			}
 		}
 	}

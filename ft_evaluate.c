@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 04:18:19 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/27 05:03:34 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 13:39:02 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ void		ft_eval_float(t_pfconv *current, long double num)
 			current->string = ft_float_normal(current, num, 10);
 		else if (current->type == 'a')
 			current->string = ft_float_normal(current, num, 16);
-		ft_precision(current, current->precision);
 /*		if (ft_strlen(ft_strchr(current->string, '.')) - 1 < current->precision)
 		{
 			length = ft_strlen(ft_strchr(current->string, '.')) - 1;
