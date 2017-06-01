@@ -95,5 +95,7 @@ int		ft_other_types(t_pfconv *current, va_list args)
 		ft_string_wide(current, va_arg(args, char*));
 	if (current->type == '%')
 		ft_char(current, '%');
+	if (current->type == 'n')
+		current->string = (char*)va_arg(args, int*);
 	return (current->chars);
 }
