@@ -63,7 +63,8 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	if (current->length >= 3 && current->length <= 7 && current->length != 4)
 		new = va_arg(args, unsigned long long);
 	str = ft_utoa_base(new, base);
-	current->string = ft_strlowcase(str);
+	if (ft_tolower(current->type) == current->type)
+		current->string = ft_strlowcase(str);
 	current->chars = ft_strlen(str);
 	return (current->chars);
 }

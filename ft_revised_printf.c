@@ -75,6 +75,7 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 				ft_ptr(list->conversion, args);
 			if (list->conversion->type != 'c')
 				ft_width(list->conversion);
+			ft_hash(list->conversion);
 			ft_space(list->conversion);
 			ft_plus(list->conversion);
 			ft_zero(list->conversion);

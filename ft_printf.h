@@ -76,6 +76,7 @@ int			ft_floating_types(t_pfconv *current, va_list args);
 int			ft_other_types(t_pfconv *current, va_list args);
 int			ft_ptr(t_pfconv *current, va_list args);
 void		ft_plus(t_pfconv *current);
+void		ft_hash(t_pfconv *current);
 void		ft_zero(t_pfconv *current);
 void		ft_space(t_pfconv *current);
 
