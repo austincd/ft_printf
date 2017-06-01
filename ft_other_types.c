@@ -35,10 +35,18 @@ static int	ft_char_wide(t_pfconv *current, unsigned int c)
 
 static int	ft_string(t_pfconv *current, char *c)
 {
+	if (c)
+	{
 //	printf("str is %s\n", c);
 	current->string = ft_strdup(c);
 	current->chars = ft_strlen(current->string);
 //	printf("current string is %s, chars is %d", current->string, current->chars);
+	}
+	else
+	{
+		current->string = ft_strdup("(null)");
+		current->chars = ft_strlen(current->string);
+	}
 	return (current->chars);
 }
 
@@ -48,17 +56,25 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 //	int		size;
 	int		index;
 
-	index = 0;
-	wc = (wchar_t*)c;
-	while (wc[index])
-		++index;
-//	printf("index is %d\n", index);
-	current->string = (char*)ft_memalloc(sizeof(wchar_t) * (index + 1));
-//	current->string = ft_strdup(c);
-	current->chars = index * sizeof(wchar_t);
-	ft_memcpy(current->string, wc, current->chars);
-//	printf("str is %ls\n", (wchar_t*)current->string);
-//	printf("%i\n", current->chars);
+	if (c)
+	{
+		index = 0;
+		wc = (wchar_t*)c;
+		while (wc[index])
+			++index;
+	//	printf("index is %d\n", index);
+		current->string = (char*)ft_memalloc(sizeof(wchar_t) * (index + 1));
+	//	current->string = ft_strdup(c);
+		current->chars = index * sizeof(wchar_t);
+		ft_memcpy(current->string, wc, current->chars);
+		//	printf("str is %ls\n", (wchar_t*)current->string);
+	//	printf("%i\n", current->chars);
+	}
+	else
+	{
+		current->string = ft_strdup("(null)");
+		current->chars = ft_strlen(current->string);
+	}
 	return (current->chars);
 }
 
