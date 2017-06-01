@@ -35,6 +35,7 @@ typedef struct	s_printf_conv
 typedef struct	s_string_list
 {
 	unsigned long long			size;
+	char						type;
 	char						*string;
 	struct s_string_list		*next;
 	t_pfconv					*conversion;
