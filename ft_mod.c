@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:49:55 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:02:09 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 void	ft_precision(t_pfconv *current)
 {
 	char *strs;
+	char	*ints;
 	char *floats;
 
-	strs = ft_strdup("sSxXiIdDoO");
+	ints = ft_strdup("xXuUiIoOdD");
+	strs = ft_strdup("sS");
 	floats = ft_strdup("gGfFaAeE");
 	if (current)
 	{
+		if (ft_strchr(strs, current->type))
+		{
+			ft_precision_integer(current);
+			current->chars = ft_strlen(current->string);
+		}
 		if (ft_strchr(strs, current->type))
 		{
 			ft_precision_string(current);
@@ -32,6 +39,7 @@ void	ft_precision(t_pfconv *current)
 			current->chars = ft_strlen(current->string);
 		}
 	}
+	free(ints);
 	free(strs);
 	free(floats);
 }

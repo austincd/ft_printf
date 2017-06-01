@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:41:04 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:02:48 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void		ft_printf_double(t_pfconv *current, va_list args);
 void		ft_printf_other(t_pfconv *current, va_list args);
 void		ft_precision(t_pfconv *current);
 void		ft_precision_string(t_pfconv *current);
+void		ft_precision_integer(t_pfconv *current);
 void		ft_precision_float(t_pfconv *current, unsigned int precision);
 void		ft_width(t_pfconv *current);
 t_slist		*ft_new_tslist(t_slist *previous, void *content, unsigned long long size);
