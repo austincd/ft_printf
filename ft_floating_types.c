@@ -38,16 +38,16 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 
 	base = 10;
 	new = 0;
+	if (current->width == -2)
+		current->width = va_arg(args, int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, int);
 	if (ft_lowercase(current->type) == 'a')
 		base = 16;
 	if (current->length == 4)
 		new = va_arg(args, double);
 	else
 		new = va_arg(args, double);
-	if (current->width == -2)
-		current->width = va_arg(args, int);
-	if (current->precision == -2)
-		current->precision = va_arg(args, int);
 	if (ft_lowercase(current->type) == 'g')
 		ft_g(current, new);
 	else if (ft_lowercase(current->type) == 'e')

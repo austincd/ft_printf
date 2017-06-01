@@ -18,6 +18,10 @@ int	ft_signed_integer_types(t_pfconv *current, va_list args)
 	char		*str;
 	int			base;
 
+	if (current->width == -2)
+		current->width = va_arg(args, unsigned int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, unsigned int);
 	base = 10;
 	if (current->type == 'x' || current->type == 'X')
 		base = 16;
@@ -30,10 +34,6 @@ int	ft_signed_integer_types(t_pfconv *current, va_list args)
 		new = va_arg(args, long int);
 	if (current->length == 3)
 		new = va_arg(args, long long int);
-	if (current->width == -2)
-		current->width = va_arg(args, unsigned int);
-	if (current->precision == -2)
-		current->precision = va_arg(args, unsigned int);
 	str = ft_itoa_base(new, base);
 	current->string = str;
 	current->chars = ft_strlen(str);
@@ -46,6 +46,10 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	char		*str;
 	int			base;
 
+	if (current->width == -2)
+		current->width = va_arg(args, unsigned int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, unsigned int);
 	base = 10;
 	if (current->type == 'x' || current->type == 'X')
 		base = 16;
@@ -58,10 +62,6 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 		new = va_arg(args, unsigned long int);
 	if (current->length >= 3 && current->length <= 7 && current->length != 4)
 		new = va_arg(args, unsigned long long);
-	if (current->width == -2)
-		current->width = va_arg(args, unsigned int);
-	if (current->precision == -2)
-		current->precision = va_arg(args, unsigned int);
 	str = ft_utoa_base(new, base);
 	current->string = ft_strlowcase(str);
 	current->chars = ft_strlen(str);

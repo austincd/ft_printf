@@ -80,6 +80,10 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 
 int		ft_other_types(t_pfconv *current, va_list args)
 {
+	if (current->width == -2)
+		current->width = va_arg(args, int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, int);
 //	printf("type %c\n", current->type);
 	if (ft_lowercase(current->type) == 'c')
 		ft_char(current, va_arg(args, int));
