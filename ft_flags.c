@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:17:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:34:29 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_hash(t_pfconv *current)
 		{
 			free(current->string);
 			current->string = temp;
+			current->chars = ft_strlen(current->string);
 		}
 	}
 }
