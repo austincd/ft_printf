@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:44:45 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 13:49:55 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_precision(t_pfconv *current)
 	char *strs;
 	char *floats;
 
-	strs = ft_strdup("sS");
+	strs = ft_strdup("sSxXiIdDoO");
 	floats = ft_strdup("gGfFaAeE");
 	if (current)
 	{
