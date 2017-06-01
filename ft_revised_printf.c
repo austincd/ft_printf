@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:50:27 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 13:51:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 			if (list->conversion->type == 'p' || list->conversion->type == 'P')
 				ft_ptr(list->conversion, args);
 //			printf("string is:\n%s\n", list->conversion->string);
+			ft_precision(list->conversion);
 			if (list->conversion->type != 'c')
 				ft_width(list->conversion);
 //			printf("string is:\n%s\n", list->conversion->string);
-			ft_precision(list->conversion);
 //			printf("string is:\n%s\n", list->conversion->string);
 //			if (list->conversion->flags[4])
 			ft_hash(list->conversion);
