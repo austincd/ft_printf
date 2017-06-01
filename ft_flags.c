@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:34:29 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:36:30 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_hash(t_pfconv *current)
 	temp = NULL;
 	if (current->flags[4])
 	{
-		if (current->type == 'o')
+		if (ft_tolower(current->type == 'o') && ft_atoi(current->string))
 			temp = ft_strjoin("0", current->string);
 		if (current->type == 'x')
 			temp = ft_strjoin("0x", current->string);
