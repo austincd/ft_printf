@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:10:45 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:18:26 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_precision(t_pfconv *current)
 	floats = ft_strdup("gGfFaAeE");
 	if (current)
 	{
-		if (current->flags[3])
+		if (current->flags[3] && current->precision >= 0)
 		{
 			ft_zero(current);
 		}

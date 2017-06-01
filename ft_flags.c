@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:11:46 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:17:09 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	ft_zero(t_pfconv *current)
 	{
 		if (current->flags[3] && ft_strchr(ints, current->type))
 		{
+			printf("hello\n");
 			while ((temp = ft_strchr(current->string, ' ')))
 				*temp = '0';
 			current->flags[3] = 0;
