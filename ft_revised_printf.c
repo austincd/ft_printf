@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 13:51:59 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:06:57 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 				ft_ptr(list->conversion, args);
 //			printf("string is:\n%s\n", list->conversion->string);
 			ft_precision(list->conversion);
+			ft_zero(list->conversion);
 			if (list->conversion->type != 'c')
 				ft_width(list->conversion);
 //			printf("string is:\n%s\n", list->conversion->string);
@@ -86,7 +87,6 @@ int				ft_evaluate_conversions(t_slist *list, va_list args)
 //			printf("string is:\n%s\n", list->conversion->string);
 			ft_plus(list->conversion);
 //			printf("string is:\n%s\n", list->conversion->string);
-			ft_zero(list->conversion);
 //			printf("string is:\n%s\n", list->conversion->string);
 			list->string = list->conversion->string;
 			list->size = list->conversion->chars;
