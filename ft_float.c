@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:03:11 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/24 19:02:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 13:39:38 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**ft_float_build_invalids(int capitalized)
 	return (new);
 }
 
-void	ft_precision(t_pfconv *current, unsigned int precision)
+/*void	ft_precision(t_pfconv *current, unsigned int precision)
 {
 	unsigned int		length;
 	char				*ptr;
@@ -110,4 +110,4 @@ void	ft_precision(t_pfconv *current, unsigned int precision)
 			}
 		}
 	}
-}
+}*/

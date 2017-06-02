@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:09:48 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/18 22:22:35 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/01 14:43:12 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ char	*ft_itoa_float(long double num, int base)
 	}
 	decimal = (long long)temp;
 	new = ft_strjoin(ft_itoa_base(integer, base), ".");
+	ft_restrcat(&new, ft_itoa_base(decimal, base));
+	temp -= decimal;
+	temp *= 100000;
+	decimal = (long long)temp;
 	ft_restrcat(&new, ft_itoa_base(decimal, base));
 	return (new);
 }
