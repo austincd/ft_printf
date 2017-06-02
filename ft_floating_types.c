@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:45:27 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 16:36:46 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,29 @@ static void		ft_g(t_pfconv *current, long double num)
 		current->string = temp1;
 		free(temp2);
 	}
+}
+
+static void		ft_a(t_pfconv *current, long double num)
+{
+	int		counter;
+	char	*str;
+	char	*last;
+	long double div;
+
+	str = NULL;
+	counter = -7;
+	div = num;
+	while (div >= 2)
+		div = num / ft_power(++counter, 2);
+	str = ft_strdup("0X");
+	last = ft_basefloat(div, 16);
+	ft_restrcat(&str, last);
+	ft_restrcat(&str, "P");
+	last = ft_itoa_base(counter, 10);
+	ft_restrcat(&str, last);
+	if (current->type == 'a')
+		ft_strlowcase(str);
+	current->string = str;
 }
 
 int	ft_floating_types(t_pfconv *current, va_list args)
@@ -54,8 +77,10 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 		ft_g(current, new);
 	else if (ft_lowercase(current->type) == 'e')
 		current->string = ft_float_standard(current, new, base);
-	else if (ft_lowercase(current->type) == 'a' || ft_lowercase(current->type) == 'f')
+	else if (ft_lowercase(current->type) == 'f')
 		current->string = ft_float_normal(current, new, base);
+	else if (ft_lowercase(current->type) == 'a')
+		ft_a(current, new);
 	current->chars = ft_strlen(current->string);
 	return (ft_strlen(current->string));
 }
