@@ -135,5 +135,7 @@ unsigned long	ft_char_expand(unsigned long c);
 void			ft_charcat(char *str, char c);
 char			*ft_utoa_base(unsigned long long num, unsigned int base);
 char			*ft_strtcdup(char *str, char c);
+long double		ft_power(long long power, long long base);
+long double		ft_floatmod(long double alpha, long double beta);
 
 #endif
