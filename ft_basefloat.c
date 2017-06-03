@@ -30,7 +30,7 @@ char	*ft_basefloat(long double num, int base)
 		ft_charcat(str, digits[(long long)((num / power))]);
 		num = ft_floatmod(num, power);
 		if (base == 10)
-			num += 0.000000000000000001;
+			num += 0.000000001;
 		if (power == 1 && num >= 0.000000000000000001)
 			ft_charcat(str, '.');
 		power = ft_power(--counter, base);
