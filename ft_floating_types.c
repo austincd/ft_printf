@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:44:37 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 17:45:36 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void		ft_a(t_pfconv *current, long double num)
 		str = ft_strdup("-0X");
 	}
 	else if (num == 0)
-		str = ft_strdup("OXO");
+		str = ft_strdup("0X0");
 	else
 		str = ft_strdup("0X");
 	div = num;
