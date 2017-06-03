@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 16:36:46 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 17:03:03 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,13 @@ static void		ft_a(t_pfconv *current, long double num)
 	str = ft_strdup("0X");
 	last = ft_basefloat(div, 16);
 	ft_restrcat(&str, last);
+	free(last);
 	ft_restrcat(&str, "P");
+	if (counter >= 0)
+		ft_restrcat(&str, "+");
 	last = ft_itoa_base(counter, 10);
 	ft_restrcat(&str, last);
+	free(last);
 	if (current->type == 'a')
 		ft_strlowcase(str);
 	current->string = str;
