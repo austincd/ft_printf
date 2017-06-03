@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:02:13 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 18:03:21 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void		ft_e(t_pfconv *current, long double num)
 	str = ft_basefloat(num, 10);
 	exponent = ft_strdup("E+");
 	last = ft_itoa(counter);
+	if (counter < 10)
+		ft_restrcat(&exponent, "0");
 	ft_restrcat(&exponent, last);
 	current->string = str;
 	current->exponent = exponent;
