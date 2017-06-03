@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:45:36 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 17:46:44 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ static void		ft_a(t_pfconv *current, long double num)
 	ft_restrcat(&str, last);
 	free(last);
 	current->exponent = ft_strdup("P");
-	if (counter >= 0)
-		ft_restrcat(&current->exponent, "+");
 	if (div == 0)
 		counter = 0;
+	if (counter >= 0)
+		ft_restrcat(&current->exponent, "+");
 	last = ft_itoa_base(counter, 10);
 	ft_restrcat(&current->exponent, last);
 	free(last);
