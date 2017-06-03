@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:00:17 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 18:03:21 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void		ft_e(t_pfconv *current, long double num)
 	str = ft_basefloat(num, 10);
 	exponent = ft_strdup("E+");
 	last = ft_itoa(counter);
+	if (counter < 10)
+		ft_restrcat(&exponent, "0");
 	ft_restrcat(&exponent, last);
 	current->string = str;
 	current->exponent = exponent;
@@ -107,7 +109,7 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 		current->width = va_arg(args, int);
 	if (current->precision == -2)
 		current->precision = va_arg(args, int);
-	if (current->precision <= 0 && ft_lowercase(current->type) == 'f')
+	if (current->precision <= 0 && ft_lowercase(current->type) != 'a')
 		current->precision = 6;
 	if (ft_lowercase(current->type) == 'a')
 		base = 16;
