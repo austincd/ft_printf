@@ -28,9 +28,9 @@ char	*ft_basefloat(long double num, int base)
 	while (num >= 0.000000000000000001)
 	{
 		ft_charcat(str, digits[(long long)((num / power))]);
-		num = ft_floatmod(num, power);
-		if (power == 1 && num >= 0.000000000000000001)
+		if (power == 1)
 			ft_charcat(str, '.');
+		num = ft_floatmod(num, power);
 		power = ft_power(--counter, base);
 	}
 	return (str);
