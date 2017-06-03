@@ -25,7 +25,7 @@ char	*ft_basefloat(long double num, int base)
 	str = ft_strnew(counter + 9);
 	if (sign == -1)
 		ft_charcat(str, '-');
-	while (num >= 0.0000000002)
+	while (num >= 0.000000000000000001)
 	{
 		ft_charcat(str, digits[(long long)((num / power))]);
 		if (power == 1)
