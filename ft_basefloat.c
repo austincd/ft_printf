@@ -31,7 +31,10 @@ char	*ft_basefloat(long double num, int base)
 		printf("n/p is %Lf\n", num / power);
 		printf("lln/p is %lld\n", (long long)((num / power)));
 		ft_charcat(str, digits[(long long)((num / power))]);
-		num = ft_floatmod(num, power);
+		if (base == 10 && num - (num / power) < 0.00000000000001)
+			num = 0;
+		else
+			num = ft_floatmod(num, power);
 		if (power == 1 && num >= 0.000000000000000001)
 			ft_charcat(str, '.');
 		power = ft_power(--counter, base);
