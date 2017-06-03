@@ -27,6 +27,7 @@ char	*ft_basefloat(long double num, int base)
 		ft_charcat(str, '-');
 	while (num >= 0.000000000000000001)
 	{
+		printf("n/p is %Lf\n", num / power);
 		ft_charcat(str, digits[(long long)((num / power))]);
 		num = ft_floatmod(num, power);
 		if (power == 1 && num >= 0.000000000000000001)
