@@ -6,11 +6,36 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:46:44 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 18:00:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void		ft_e(t_pfconv *current, long double num)
+{
+	int		counter;
+	char	*str;
+	char	*exponent;
+	char	*last;
+
+	counter = 0;
+	str = NULL;
+	exponent = NULL;
+	while (num >= 10)
+	{
+		num /= 10;
+		++counter;
+	}
+	str = ft_basefloat(num, 10);
+	exponent = ft_strdup("E+");
+	last = ft_itoa(counter);
+	ft_restrcat(&exponent, last);
+	current->string = str;
+	current->exponent = exponent;
+	if (last)
+		free(last);
+}
 
 static void		ft_g(t_pfconv *current, long double num)
 {
@@ -93,7 +118,7 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 	if (ft_lowercase(current->type) == 'g')
 		ft_g(current, new);
 	else if (ft_lowercase(current->type) == 'e')
-		current->string = ft_float_standard(current, new, base);
+		ft_e(current, new);
 	else if (ft_lowercase(current->type) == 'f')
 		current->string = ft_float_normal(current, new, base);
 	else if (ft_lowercase(current->type) == 'a')
