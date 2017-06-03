@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:50:28 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 16:53:37 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,6 @@ char			*ft_strtcdup(char *str, char c);
 long double		ft_power(long long power, long long base);
 long double		ft_floatmod(long double alpha, long double beta);
 char			*ft_basefloat(long double num, int base);
-char			*ft_ftoa(long double num);
 char			*ft_strichr(const char *s, int c);
 
 #endif

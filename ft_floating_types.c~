@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:03:21 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 18:06:20 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ static void		ft_e(t_pfconv *current, long double num)
 	current->exponent = exponent;
 	if (last)
 		free(last);
+	if (current->type == 'e')
+	{
+		ft_strlowcase(str);
+		ft_strlowcase(current->exponent);
+	}
 }
 
 static void		ft_g(t_pfconv *current, long double num)
