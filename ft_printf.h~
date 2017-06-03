@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:19:53 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 17:18:40 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_printf_conv
 	char					*string;
 	char					*orig;
 	int						chars;
-	char					*exponent;
+	int						exponent;
 }							t_pfconv;
 
 typedef struct	s_string_list
