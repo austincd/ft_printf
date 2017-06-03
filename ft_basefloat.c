@@ -28,8 +28,8 @@ char	*ft_basefloat(long double num, int base)
 	while (num >= 0.000000000000000001)
 	{
 		printf("n/p is %Lf\n", num / power);
-		printf("lln/p is %lld\n", (long long)(num / power));
-		ft_charcat(str, digits[(long long)((num / power))]);
+		printf("lln/p is %lld\n", (long long)((num / power) + .1));
+		ft_charcat(str, digits[(long long)((num / power) + .1)]);
 		num = ft_floatmod(num, power);
 		if (power == 1 && num >= 0.000000000000000001)
 			ft_charcat(str, '.');
