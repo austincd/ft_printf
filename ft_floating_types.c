@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:37:25 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/02 17:39:40 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ static void		ft_a(t_pfconv *current, long double num)
 
 	str = NULL;
 	counter = -7;
-	div = num;
-	while (div >= 2)
-		div = num / ft_power(++counter, 2);
 	if (num < 0)
 	{
 		num *= -1;
@@ -50,6 +47,9 @@ static void		ft_a(t_pfconv *current, long double num)
 	}
 	else
 		str = ft_strdup("0X");
+	div = num;
+	while (div >= 2)
+		div = num / ft_power(++counter, 2);
 	last = ft_basefloat(div, 16);
 	ft_restrcat(&str, last);
 	free(last);
