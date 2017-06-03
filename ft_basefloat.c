@@ -27,13 +27,13 @@ char	*ft_basefloat(long double num, int base)
 		ft_charcat(str, '-');
 	while (num >= 0.000000000000000001)
 	{
-		printf("num is %Lf\n", num);
-		printf("n/p is %Lf\n", num / power);
-		printf("lln/p is %lld\n", (long long)((num / power)));
+//		printf("num is %Lf\n", num);
+//		printf("n/p is %Lf\n", num / power);
+//		printf("lln/p is %lld\n", (long long)((num / power)));
 		ft_charcat(str, digits[(long long)((num / power))]);
-		if (base == 10 && num - (num / power) < 0.00000000000001)
-			num = 0;
-		else
+//		if (base == 10 && num - (num / power) < 0.00000000000001)
+//			num = 0;
+//		else
 			num = ft_floatmod(num, power);
 		if (power == 1 && num >= 0.000000000000000001)
 			ft_charcat(str, '.');
