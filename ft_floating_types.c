@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:20:12 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:36:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,20 @@ static void		ft_e(t_pfconv *current, long double num)
 
 static void		ft_g(t_pfconv *current, long double num)
 {
-	char *temp1;
-	char *temp2;
+	long long	length1;
+	long long	length2;
+	char		*temp;
 
-	temp1 = ft_float_standard(current, num, 10);
-	temp2 = ft_float_standard(current, num, 10);
-	if (ft_strlen(temp2) < ft_strlen(temp1))
-	{
-		current->string = temp2;
-		free(temp1);
-	}
+	ft_e(current, num);
+	length1 = ft_strlen(current->string);
+	temp = ft_float_normal(current, num, 10);
+	length2 = ft_strlen(temp);
+	if (length1 <= length2)
+		free(temp);
 	else
 	{
-		current->string = temp1;
-		free(temp2);
+		free(current->string);
+		current->string = temp;
 	}
 }
 
