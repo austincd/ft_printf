@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:03:11 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:47:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:47:58 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 	char	*new;
 	char	*prefix;
 //	char	**invalid;
-//	char	*temp;
+	char	*temp;
 
 	prefix = ft_strdup("0x");
 //	invalid = ft_float_build_invalids(current->capitalized);
