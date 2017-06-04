@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 03:01:11 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 03:01:52 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ static void		ft_g(t_pfconv *current, long double num)
 	if (temp2)
 		*temp2 = 0;
 		length2 = ft_strlen(temp);
-	printf("normal is %s\n", temp);
-	printf("standard is %s%s\n", current->string, current->exponent);
+//	printf("normal is %s\n", temp);
+//	printf("standard is %s%s\n", current->string, current->exponent);
 	if (length1 < length2 + 4)
 		free(temp);
 	else
