@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 18:47:08 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:11:48 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:13:51 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*ft_ftoa(long double num)
 //		if (base == 10 && num - (num / power) < 0.00000000000001)
 //			num = 0;
 //		else
+		printf("counter is %d\n", counter);
 			num = ft_floatmod(num, power);
 		if (counter == 0)
 			ft_charcat(str, '.');
