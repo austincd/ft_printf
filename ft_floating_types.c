@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:49:52 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:51:31 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,15 @@ static void		ft_g(t_pfconv *current, long double num)
 	length1 = ft_strlen(current->string);
 	temp = ft_float_normal(current, num, 10);
 		length2 = ft_strlen(temp);
-	printf("normal is %s\n", temp);
+//	printf("normal is %s\n", temp);
 	if (length1 <= length2)
 		free(temp);
 	else
 	{
 		free(current->string);
 		current->string = temp;
+		free(current->exponent);
+		current->exponent = NULL;
 	}
 }
 
