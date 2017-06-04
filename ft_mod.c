@@ -6,17 +6,17 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:18:26 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 07:25:58 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_precision(t_pfconv *current)
+void		ft_precision(t_pfconv *current)
 {
-	char *strs;
+	char	*strs;
 	char	*ints;
-	char *floats;
+	char	*floats;
 
 	ints = ft_strdup("xXuUiIoOdD");
 	strs = ft_strdup("sS");
@@ -24,39 +24,42 @@ void	ft_precision(t_pfconv *current)
 	if (current)
 	{
 		if (current->flags[3] && current->precision >= 0)
-		{
 			ft_zero(current);
-		}
 		if (ft_strchr(ints, current->type))
-		{
 			ft_precision_integer(current);
-			current->chars = ft_strlen(current->string);
-		}
-		if (ft_strchr(strs, current->type))
-		{
+		else if (ft_strchr(strs, current->type))
 			ft_precision_string(current);
-			current->chars = ft_strlen(current->string);
-		}
 		else if (ft_strchr(floats, current->type))
-		{
 			ft_precision_float(current, current->precision);
+		if (ft_strchr(ints, current->type) || \
+		ft_strchr(strs, current->type) || ft_strchr(floats, current->type))
 			current->chars = ft_strlen(current->string);
-		}
 	}
 	free(ints);
 	free(strs);
 	free(floats);
 }
 
-void	ft_width(t_pfconv *current)
+static void	ft_width_helper(t_pfconv *current, unsigned int diff, char *tmp)
+{
+	if (current->flags[0] == 1)
+	{
+		ft_memcpy(tmp, current->string, current->chars);
+		ft_memset(tmp + current->chars, ' ', diff);
+	}
+	else
+	{
+		ft_memset(tmp, ' ', diff);
+		ft_memcpy(tmp + diff, current->string, current->chars);
+	}
+}
+
+void		ft_width(t_pfconv *current)
 {
 	char			*tmp;
-//  char			*new;
 	unsigned int	diff;
 
 	diff = current->width - current->chars;
-	tmp = NULL;
-//  new = NULL;
 	if (current)
 	{
 		if (current->string && current->width >= 0)
@@ -64,16 +67,7 @@ void	ft_width(t_pfconv *current)
 			if (current->chars < current->width)
 			{
 				tmp = ft_strnew(current->width);
-				if (current->flags[0] == 1)
-				{
-					ft_memcpy(tmp, current->string, current->chars);
-					ft_memset(tmp + current->chars, ' ', diff);
-				}
-				else
-				{
-					ft_memset(tmp, ' ', diff);
-					ft_memcpy(tmp + diff, current->string, current->chars);
-				}
+				ft_width_helper(current, diff, tmp);
 				free(current->string);
 				current->string = tmp;
 				current->chars = ft_strlen(current->string);
