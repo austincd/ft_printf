@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:17:22 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:20:12 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ static void		ft_e(t_pfconv *current, long double num)
 		num /= 10;
 		++counter;
 	}
-	str = ft_ftoa(num);
-	exponent = ft_strdup("E+");
 	if (sign == -1)
-		last = ft_strdup("-");
-	ft_restrcat(&last, ft_itoa(counter));
+	{
+		str = ft_strdup("-");
+		ft_restrcat(&str, ft_ftoa(num));
+	}
+	else
+		str = ft_ftoa(num);
+	exponent = ft_strdup("E+");
+	last = ft_itoa(counter);
 	if (counter < 10)
 		ft_restrcat(&exponent, "0");
 	ft_restrcat(&exponent, last);
