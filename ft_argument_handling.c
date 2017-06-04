@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 08:28:15 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 09:01:48 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ char	*ft_parse_precision(char *str, t_pfconv *new)
 	ptr = str;
 	if (new)
 	{
-		new->precision = -1;
 		if (ptr)
 		{
 			if (*ptr == '.')
@@ -205,12 +204,6 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 					new->base = 16;
 				if (new->type != *ptr)
 					new->capitalized = 1;
-/*				if (ft_strchr(types[1], new->type))
-					new->import_type = 'i';
-				else if (ft_strchr(types[2], new->type))
-					new->import_type = '2';
-				else if (ft_strchr(types[3], new->type))
-					new->import_type = 'u';*/
 				if (ft_strchr(types[5], *ptr))
 					new->length = 2;
 				return (ptr + 1);
