@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 18:47:08 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:30:59 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 03:36:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,10 @@ char	*ft_ftoa(long double num)
 		ft_charcat(str, '-');
 	while (num >= 0.000000000000000001 || counter > -7)
 	{
-//		printf("num is %Lf\n", num);
-//		printf("n/p is %Lf\n", num / power);
-//		printf("lln/p is %lld\n", (long long)((num / power) + .5));
 		if (counter == -6)
 			ft_charcat(str, digits[(long long)((num / power) + .5)]);			
 		else
 			ft_charcat(str, digits[(long long)((num / power) + .1)]);
-//		if (base == 10 && num - (num / power) < 0.00000000000001)
-//			num = 0;
-//		else
 			num = ft_floatmod(num, power);
 		if (counter == 0)
 			ft_charcat(str, '.');
