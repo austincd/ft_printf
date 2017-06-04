@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 18:47:08 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:08:54 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:11:48 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_ftoa(long double num)
 //			num = 0;
 //		else
 			num = ft_floatmod(num, power);
-		if (power == 1)
+		if (counter == 0)
 			ft_charcat(str, '.');
 		power = ft_power(--counter, 10);
 	}
