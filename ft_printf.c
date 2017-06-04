@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 07:10:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:03:56 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ va_list args, char **types)
 	ft_space(conversion);
 	ft_plus(conversion);
 	ft_zero(conversion);
-	if (list->conversion->exponent)
+	if (conversion->exponent)
 	{
-		ft_restrcat(&list->conversion->string, list->conversion->exponent);
-		list->conversion->chars = ft_strlen(list->conversion->string);
+		ft_restrcat(&conversion->string, conversion->exponent);
+		conversion->chars = ft_strlen(conversion->string);
 	}
 }
 

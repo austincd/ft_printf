@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 03:35:45 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:05:35 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ static void		ft_e(t_pfconv *current, long double num)
 
 static void		ft_g(t_pfconv *current, long double num)
 {
-	long long	length1;
-	long long	length2;
-	char		*temp;
-	char		*temp2;
+	unsigned long long	length1;
+	unsigned long long	length2;
+	char				*temp;
+	char				*temp2;
 
 	ft_e(current, num);
 	temp = ft_float_normal(current, num, 10);

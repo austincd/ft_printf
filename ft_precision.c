@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:29 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 07:30:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:04:24 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ unsigned int precision, char *ptr)
 
 void			ft_precision_float(t_pfconv *current, unsigned int precision)
 {
-	unsigned int		length;
 	char				*ptr;
 	char				*tail;
 

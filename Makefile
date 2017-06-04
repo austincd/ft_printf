@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/06/02 18:50:58 by adaly            ###   ########.fr        #
+#    Updated: 2017/06/04 08:03:09 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -49,8 +49,8 @@ ft_get_next_n_lines.c get_next_line.c ft_itoa_base.c ft_itoa_float.c \
 ft_char_expand.c ft_utoa_base.c ft_charcat.c ft_strcdup.c ft_strtcdup.c \
 ft_basefloat.c ft_power.c ft_floatmod.c ft_strichr.c ft_ftoa.c 
 
-SRCSPRINTF= ft_argument_handling.c ft_evaluate.c ft_printf.c ft_float.c \
-ft_import_type.c ft_flags.c ft_revised_printf.c ft_tslist.c ft_integer_types.c \
+SRCSPRINTF= ft_argument_handling.c ft_printf.c ft_float.c \
+ft_import_type.c ft_flags.c ft_convparse.c ft_tslist.c ft_integer_types.c \
 ft_floating_types.c ft_other_types.c ft_ptr.c ft_strndup.c ft_mod.c ft_precision.c \
 
 OBJECTS1= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o \
@@ -88,8 +88,8 @@ ft_char_expand.o ft_utoa_base.o ft_charcat.o ft_strcdup.o ft_strndup.o \
 ft_strtcdup.o ft_basefloat.o ft_power.o ft_floatmod.o ft_strichr.o \
 ft_ftoa.o 
 
-OBJECTSPRINTF= ft_argument_handling.o ft_evaluate.o ft_printf.o ft_float.o \
-ft_import_type.o ft_flags.o ft_revised_printf.o ft_tslist.o ft_integer_types.o \
+OBJECTSPRINTF= ft_argument_handling.o ft_printf.o ft_float.o \
+ft_import_type.o ft_flags.o ft_convparse.o ft_tslist.o ft_integer_types.o \
 ft_floating_types.o ft_other_types.o ft_ptr.o ft_mod.o ft_precision.o
 
 all: $(NAME)
