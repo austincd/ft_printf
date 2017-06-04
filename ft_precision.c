@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:29 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 17:22:40 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 03:28:06 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_precision_float(t_pfconv *current, unsigned int precision)
 	{
 		if (current->string && current->precision >= 0)
 		{
-			if ((ptr = ft_strchr(current->string, '.')))
+			if ((ptr = current->string))
 			{
 				length = ft_strlen(ptr);
 				if (length < precision)
