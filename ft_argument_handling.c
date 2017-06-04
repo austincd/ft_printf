@@ -6,12 +6,11 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/31 15:09:33 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:28:15 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 t_pfconv	*ft_conversion_parsing(char **str)
 {
@@ -101,11 +100,6 @@ char *ft_parse_flags(char *str, t_pfconv *new)
 			while (ft_strchr(flags, *ptr))
 			{
 				index = ft_strchr(flags, *ptr) - flags;
-/*				if (new->flags[index] != 0)
-				{
-					//free(flags);
-					return (NULL);
-				}*/
 				new->flags[index] = 1;
 				++ptr;
 			}
@@ -207,17 +201,16 @@ char	*ft_parse_type(char *str, t_pfconv *new, char **types)
 			if (ft_strchr(types[0], *ptr))
 			{
 				new->type = *ptr;
-//				printf("type is %c\n", new->type); 
 				if (new->type == 'a' || new->type == 'x')
 					new->base = 16;
 				if (new->type != *ptr)
 					new->capitalized = 1;
-				if (ft_strchr(types[1], new->type))
+/*				if (ft_strchr(types[1], new->type))
 					new->import_type = 'i';
 				else if (ft_strchr(types[2], new->type))
 					new->import_type = '2';
 				else if (ft_strchr(types[3], new->type))
-					new->import_type = 'u';
+					new->import_type = 'u';*/
 				if (ft_strchr(types[5], *ptr))
 					new->length = 2;
 				return (ptr + 1);

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/30 20:45:47 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:09:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ static int	ft_string(t_pfconv *current, char *c)
 {
 	if (c)
 	{
-//	printf("str is %s\n", c);
-	current->string = ft_strdup(c);
-	current->chars = ft_strlen(current->string);
-//	printf("current string is %s, chars is %d", current->string, current->chars);
+		current->string = ft_strdup(c);
+		current->chars = ft_strlen(current->string);
 	}
 	else
 	{
@@ -53,7 +51,6 @@ static int	ft_string(t_pfconv *current, char *c)
 static int	ft_string_wide(t_pfconv *current, char *c)
 {
 	wchar_t	*wc;
-//	int		size;
 	int		index;
 
 	if (c)
@@ -62,13 +59,9 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 		wc = (wchar_t*)c;
 		while (wc[index])
 			++index;
-	//	printf("index is %d\n", index);
 		current->string = (char*)ft_memalloc(sizeof(wchar_t) * (index + 1));
-	//	current->string = ft_strdup(c);
 		current->chars = index * sizeof(wchar_t);
 		ft_memcpy(current->string, wc, current->chars);
-		//	printf("str is %ls\n", (wchar_t*)current->string);
-	//	printf("%i\n", current->chars);
 	}
 	else
 	{
@@ -78,13 +71,12 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 	return (current->chars);
 }
 
-int		ft_other_types(t_pfconv *current, va_list args)
+int			ft_other_types(t_pfconv *current, va_list args)
 {
 	if (current->width == -2)
 		current->width = va_arg(args, int);
 	if (current->precision == -2)
 		current->precision = va_arg(args, int);
-//	printf("type %c\n", current->type);
 	if (ft_lowercase(current->type) == 'c')
 		ft_char(current, va_arg(args, int));
 	else if (current->type == 'C')

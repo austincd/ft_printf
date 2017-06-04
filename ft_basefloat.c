@@ -1,43 +1,45 @@
 #include "libft.h"
 
-char	*ft_basefloat(long double num, int base)
+static char	*ft_basefloat_helper(long double num, int *nums, long double power, char *digits)
 {
 	char	*str;
-	int		counter;
-	long double power;
+
+	str = ft_strnew(nums[1] + 9);
+	if (nums[0] == -1)
+		ft_charcat(str, '-');
+	while (num >= 0.000000000000000001)
+	{
+		ft_charcat(str, digits[(long long)((num / power))]);
+			num = ft_floatmod(num, power);
+		if (power == 1 && num >= 0.000000000000000001)
+			ft_charcat(str, '.');
+		power = ft_power(--nums[1], nums[2]);
+	}
+	return (str);
+}
+
+char	*ft_basefloat(long double num, int base)
+{
+	long double	power;
 	char		*digits;
-	int			sign;
+	char		*str;
+	int			nums[3];
 
 	digits = ft_strdup("0123456789ABCDEF");
 	power = 1;
-	counter = 0;
-	str = NULL;
+	nums[1] = 0;
+	nums[0] = 0;
 	if (num < 0)
 	{
-		sign = -1;
+		nums[0] = -1;
 		num *= -1;
 	}
 	while (num / power >= base)
 	{
-		power = ft_power(counter, base);
-		++counter;
+		power = ft_power(nums[1], base);
+		++nums[1];
 	}
-	str = ft_strnew(counter + 9);
-	if (sign == -1)
-		ft_charcat(str, '-');
-	while (num >= 0.000000000000000001)
-	{
-//		printf("num is %Lf\n", num);
-//		printf("n/p is %Lf\n", num / power);
-//		printf("lln/p is %lld\n", (long long)((num / power)));
-		ft_charcat(str, digits[(long long)((num / power))]);
-//		if (base == 10 && num - (num / power) < 0.00000000000001)
-//			num = 0;
-//		else
-			num = ft_floatmod(num, power);
-		if (power == 1 && num >= 0.000000000000000001)
-			ft_charcat(str, '.');
-		power = ft_power(--counter, base);
-	}
+	nums[2] = base;
+	str = ft_basefloat_helper(num, nums, power, digits);
 	return (str);
 }

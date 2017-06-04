@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/30 13:44:59 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:25:23 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int	ft_numlen_base(unsigned long long num, unsigned int base)
 	return (counter);
 }
 
-static void	ft_utoa_internal(char *str, unsigned long long num, unsigned int base)
+static void	ft_utoa_internal(char *str, \
+unsigned long long num, unsigned int base)
 {
 	char	digits[17];
 
