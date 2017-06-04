@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:51:23 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:17:22 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,20 @@
 static void		ft_e(t_pfconv *current, long double num)
 {
 	int		counter;
+	int		sign;
 	char	*str;
 	char	*exponent;
 	char	*last;
 
+	sign = 0;
 	counter = 0;
 	str = NULL;
 	exponent = NULL;
+	if (num < 0)
+	{
+		num *= -1;
+		sign = -1;
+	}
 	while (num >= 10)
 	{
 		num /= 10;
@@ -29,7 +36,9 @@ static void		ft_e(t_pfconv *current, long double num)
 	}
 	str = ft_ftoa(num);
 	exponent = ft_strdup("E+");
-	last = ft_itoa(counter);
+	if (sign == -1)
+		last = ft_strdup("-");
+	ft_restrcat(&last, ft_itoa(counter));
 	if (counter < 10)
 		ft_restrcat(&exponent, "0");
 	ft_restrcat(&exponent, last);
