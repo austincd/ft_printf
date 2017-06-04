@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 03:11:29 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 03:12:15 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ int	ft_floating_types(t_pfconv *current, va_list args)
 		current->width = va_arg(args, int);
 	if (current->precision == -2)
 		current->precision = va_arg(args, int);
-	if (current->precision <= 0 && ft_lowercase(current->type) != 'a')
+	if (current->precision <= 0 && ft_lowercase(current->type) != 'a' && ft_lowercase(current->type) != 'g')
 		current->precision = 6;
 	if (ft_lowercase(current->type) == 'a')
 		base = 16;
