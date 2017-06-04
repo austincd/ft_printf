@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:03:11 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:44:06 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 02:47:07 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 		new = ft_strjoin(prefix, ft_itoa_float(num, base));
 	else
 		new = ft_itoa_float(num, base);
-/*	temp = ft_strrchr(new, '0');
+	if (ft_lowercase(current->type) == 'g')
+	{
+	temp = ft_strrchr(new, '0');
 	if (temp)
 	{
 		while (*temp == '0')
@@ -66,7 +68,8 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 			*temp = 0;
 		else
 			temp[1] = 0;
-	}*/
+	}
+	}
 	return (new);
 }
 
