@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 03:03:39 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 03:03:59 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void		ft_g(t_pfconv *current, long double num)
 	char		*temp2;
 
 	ft_e(current, num);
-	length1 = ft_strlen(current->string);
 	temp = ft_float_normal(current, num, 10);
 	temp2 = ft_strstr(current->string, "0000");
 	if (temp2)
@@ -73,6 +72,7 @@ static void		ft_g(t_pfconv *current, long double num)
 		length2 = ft_strlen(temp);
 	printf("normal is %s\n", temp);
 	printf("standard is %s%s\n", current->string, current->exponent);
+	length1 = ft_strlen(current->string);
 	if (length1 < length2 + 4)
 		free(temp);
 	else
