@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/05 19:40:32 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 20:29:26 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,20 +92,19 @@ void	ft_plus(t_pfconv *current)
 
 void	ft_zero(t_pfconv *current)
 {
-	char ints[5];
+	char *ints;
 	char *temp;
+	char *numstart;
 
-	ints[0] = 'i';
-	ints[1] = 'I';
-	ints[2] = 'd';
-	ints[3] = 'D';
-	ints[4] = 0;
+	numstart = current->string;
+	while (!(ft_isdigit(*numstart) && *numstart != '0'))
+		++numstart;
+	ints = ft_strdup("diDIxXoO");
 	if (current)
 	{
 		if (current->flags[3] && ft_strchr(ints, current->type))
 		{
-			printf("hello\n");
-			while ((temp = ft_strchr(current->string, ' ')))
+			while ((temp = ft_strchr(current->string, ' ')) && temp < numstart)
 				*temp = '0';
 			current->flags[3] = 0;
 		}
