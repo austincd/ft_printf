@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/06/05 19:30:50 by adaly            ###   ########.fr        #
+#    Updated: 2017/06/05 19:54:27 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -47,7 +47,7 @@ ft_open_file.c ft_next_square.c ft_next_sqrt.c ft_how_many_char.c \
 ft_strequ_multi.c ft_lowercase.c ft_read_file.c \
 ft_get_next_n_lines.c get_next_line.c ft_itoa_base.c ft_itoa_float.c \
 ft_char_expand.c ft_utoa_base.c ft_charcat.c ft_strcdup.c ft_strtcdup.c \
-ft_basefloat.c ft_power.c ft_floatmod.c ft_strichr.c ft_ftoa.c 
+ft_basefloat.c ft_power.c ft_floatmod.c ft_strichr.c ft_ftoa.c ft_strdel_plus.c
 
 SRCSPRINTF= ft_argument_handling.c ft_printf.c ft_float.c \
 ft_flags.c ft_convparse.c ft_tslist.c ft_integer_types.c ft_floating_types.c \
@@ -92,7 +92,7 @@ ft_ftoa.o
 OBJECTSPRINTF= ft_argument_handling.o ft_printf.o ft_float.o \
 ft_flags.o ft_convparse.o ft_tslist.o ft_integer_types.o \
 ft_floating_types.o ft_other_types.o ft_ptr.o ft_mod.o ft_precision.o \
-ft_conversions.o ft_convparse.o ft_e.o
+ft_conversions.o ft_convparse.o ft_e.o ft_strdel_plus.o
 
 all: $(NAME)
 
