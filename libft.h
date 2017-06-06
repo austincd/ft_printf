@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/02 18:50:28 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:38:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ char			*ft_strlowcase(char *str);
 char			*ft_strupcase(char *str);
 char			*ft_restrcat(char **dst, char *src);
 char			*ft_restrccat(char **dst, char *src, char c);
-char			*ft_restrsub(char **str, char *strtwo, unsigned int start, size_t len);
+char			*ft_restrsub(char **str, char *strtwo, \
+unsigned int start, size_t len);
 long long		*ft_longlongcat(long long *array, long long val);
 int				ft_open_file(char *file_path);
 int				ft_get_next_line(int fd, char **line);
@@ -140,5 +141,6 @@ long double		ft_floatmod(long double alpha, long double beta);
 char			*ft_basefloat(long double num, int base);
 char			*ft_ftoa(long double num);
 char			*ft_strichr(const char *s, int c);
+void			ft_strdel_plus(char **str);
 
 #endif

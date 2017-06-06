@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/01 14:36:30 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:40:32 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,38 @@ void	ft_hash(t_pfconv *current)
 			temp = ft_strjoin("0X", current->string);
 		if (temp)
 		{
-			free(current->string);
+			ft_strdel_plus(&(current->string));
 			current->string = temp;
 			current->chars = ft_strlen(current->string);
 		}
 	}
 }
+
 void	ft_space(t_pfconv *current)
 {
-	char ints[5];
+	char *ints;
 	char *temp;
 
-	ints[0] = 'i';
-	ints[1] = 'I';
-	ints[2] = 'd';
-	ints[3] = 'D';
-	ints[4] = 0;
+	ints = ft_strdup("idID");
 	if (current)
 	{
-		if (!current->flags[1] && current->flags[2] && ft_strchr(ints, current->type))
+		if (!current->flags[1] && current->flags[2] && \
+		ft_strchr(ints, current->type))
 		{
-			if (!ft_strchr(current->string, '-') && current->width < (int)ft_strlen(current->string))
+			if (!ft_strchr(current->string, '-') && current->width \
+			< (int)ft_strlen(current->string))
 			{
 				temp = current->string;
 				current->string = ft_strjoin(" ", current->string);
 				current->chars = ft_strlen(current->string);
-				free (temp);
+				ft_strdel_plus(&temp);
 			}
-			else if (!ft_strchr(current->string, '-') && current->width == (int)ft_strlen(current->string))
-			{
+			else if (!ft_strchr(current->string, '-') && \
+			current->width == (int)ft_strlen(current->string))
 				current->string[0] = ' ';
-			}
 		}
 	}
+	ft_strdel_plus(&ints);
 }
 
 void	ft_plus(t_pfconv *current)
@@ -76,17 +75,17 @@ void	ft_plus(t_pfconv *current)
 	{
 		if (current->flags[1] && ft_strchr(ints, current->type))
 		{
-			if (!ft_strchr(current->string, '-') && current->width < (int)ft_strlen(current->string))
+			if (!ft_strchr(current->string, '-') && \
+			current->width < (int)ft_strlen(current->string))
 			{
 				temp = current->string;
 				current->string = ft_strjoin("+", current->string);
 				current->chars = ft_strlen(current->string);
-				free (temp);
+				ft_strdel_plus(&temp);
 			}
-			else if (!ft_strchr(current->string, '-') && current->width == (int)ft_strlen(current->string))
-			{
+			else if (!ft_strchr(current->string, '-') \
+			&& current->width == (int)ft_strlen(current->string))
 				current->string[0] = '+';
-			}
 		}
 	}
 }

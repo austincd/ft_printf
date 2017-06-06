@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/05/30 13:45:20 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:10:14 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_itoa_internal(char *str, long long num, int base)
 
 char		*ft_itoa_base(long long val, int base)
 {
-	int		length;
+	int			length;
 	char		*new;
 
 	new = NULL;
@@ -64,7 +64,7 @@ char		*ft_itoa_base(long long val, int base)
 		}
 		length = ft_numlen_base(val, base);
 		if (!new)
-			new = ft_strnew(length);	
+			new = ft_strnew(length);
 		ft_itoa_internal(new, val, base);
 	}
 	return (new);

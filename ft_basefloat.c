@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_basefloat.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/04 15:18:23 by adaly             #+#    #+#             */
+/*   Updated: 2017/06/04 15:19:30 by adaly            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static char	*ft_basefloat_helper(long double num, int *nums, long double power, char *digits)
+static char		*ft_basefloat_helper(long double num, int *nums, \
+long double power, char *digits)
 {
 	char	*str;
 
@@ -10,7 +23,7 @@ static char	*ft_basefloat_helper(long double num, int *nums, long double power, 
 	while (num >= 0.000000000000000001)
 	{
 		ft_charcat(str, digits[(long long)((num / power))]);
-			num = ft_floatmod(num, power);
+		num = ft_floatmod(num, power);
 		if (power == 1 && num >= 0.000000000000000001)
 			ft_charcat(str, '.');
 		power = ft_power(--nums[1], nums[2]);
@@ -18,7 +31,7 @@ static char	*ft_basefloat_helper(long double num, int *nums, long double power, 
 	return (str);
 }
 
-char	*ft_basefloat(long double num, int base)
+char			*ft_basefloat(long double num, int base)
 {
 	long double	power;
 	char		*digits;

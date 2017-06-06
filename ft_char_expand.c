@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 04:32:43 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 07:16:53 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:38:49 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static unsigned long	ft_one(unsigned int c)
 	return (full_char);
 }
 
-unsigned long	ft_char_expand(unsigned long c)
+unsigned long			ft_char_expand(unsigned long c)
 {
 	int				full_char;
 	int				index;

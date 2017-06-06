@@ -6,13 +6,13 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/05/31 15:13:20 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:13:12 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_signed_integer_types(t_pfconv *current, va_list args)
+void	ft_signed_integer_types(t_pfconv *current, va_list args)
 {
 	long long	new;
 	char		*str;
@@ -37,14 +37,13 @@ int	ft_signed_integer_types(t_pfconv *current, va_list args)
 	str = ft_itoa_base(new, base);
 	current->string = str;
 	current->chars = ft_strlen(str);
-	return (ft_strlen(str));
 }
 
-int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
+void	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 {
 	unsigned long long	new;
-	char		*str;
-	int			base;
+	char				*str;
+	int					base;
 
 	if (current->width == -2)
 		current->width = va_arg(args, unsigned int);
@@ -55,7 +54,6 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 		base = 16;
 	if (current->type == 'o' || current->type == 'O')
 		base = 8;
-	new = 0;
 	if (current->length >= -1 && current->length <= 1)
 		new = va_arg(args, unsigned int);
 	if (current->length == 2)
@@ -68,5 +66,4 @@ int	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	else
 		current->string = str;
 	current->chars = ft_strlen(str);
-	return (current->chars);
 }

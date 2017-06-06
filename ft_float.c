@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:03:11 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 02:47:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/05 19:26:01 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ char	*ft_float_standard(t_pfconv *current, long double num, int base)
 	}
 	temp = ft_itoa_base(exponent, base);
 	if ((int)ft_strlen(temp) < base)
-	{
 		exp = ft_strjoin("0", temp);
-		//free(temp);
-	}
 	else
 		exp = temp;
 	new = ft_itoa_float(num, base);
@@ -38,7 +35,6 @@ char	*ft_float_standard(t_pfconv *current, long double num, int base)
 	if (current->capitalized)
 		new[ft_strlen(new) - 1] = 'E';
 	ft_restrcat(&new, exp);
-	//free(exp);
 	return (new);
 }
 
@@ -46,11 +42,9 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 {
 	char	*new;
 	char	*prefix;
-//	char	**invalid;
 	char	*temp;
 
 	prefix = ft_strdup("0x");
-//	invalid = ft_float_build_invalids(current->capitalized);
 	if (current->capitalized)
 		prefix[1] = 'X';
 	if (base == 16)
@@ -59,16 +53,16 @@ char	*ft_float_normal(t_pfconv *current, long double num, int base)
 		new = ft_itoa_float(num, base);
 	if (ft_lowercase(current->type) == 'g')
 	{
-	temp = ft_strrchr(new, '0');
-	if (temp)
-	{
-		while (*temp == '0')
-			--temp;
-		if (*temp == '.')
-			*temp = 0;
-		else
-			temp[1] = 0;
-	}
+		temp = ft_strrchr(new, '0');
+		if (temp)
+		{
+			while (*temp == '0')
+				--temp;
+			if (*temp == '.')
+				*temp = 0;
+			else
+				temp[1] = 0;
+		}
 	}
 	return (new);
 }
@@ -96,32 +90,3 @@ char	**ft_float_build_invalids(int capitalized)
 	}
 	return (new);
 }
-
-/*void	ft_precision(t_pfconv *current, unsigned int precision)
-{
-	unsigned int		length;
-	char				*ptr;
-
-	ptr = NULL;
-	if (current)
-	{
-		if (current->string && current->precision >= 0)
-		{
-			if ((ptr = ft_strchr(current->string, '.')))
-			{
-				length = ft_strlen(ptr);
-				if (length < precision)
-				{
-					ptr = ft_strnew(precision - length);
-					if (ptr)
-					{
-						ft_memset(ptr, '0', precision - length);
-						ft_restrcat(&(current->string), ptr);
-					}
-				}
-				else
-					ptr[precision + 1] = 0;
-			}
-		}
-	}
-}*/

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_utoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/06/04 08:25:23 by adaly            ###   ########.fr       */
+/*   Created: 2017/06/05 19:08:48 by adaly             #+#    #+#             */
+/*   Updated: 2017/06/05 19:09:17 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ unsigned long long num, unsigned int base)
 
 char		*ft_utoa_base(unsigned long long val, unsigned int base)
 {
-	int		length;
+	int			length;
 	char		*new;
 
 	new = NULL;
@@ -55,7 +55,7 @@ char		*ft_utoa_base(unsigned long long val, unsigned int base)
 	{
 		length = ft_numlen_base(val, base);
 		if (!new)
-			new = ft_strnew(length);	
+			new = ft_strnew(length);
 		ft_utoa_internal(new, val, base);
 	}
 	return (new);
