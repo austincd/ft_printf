@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/05 20:09:53 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/04 08:03:56 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ va_list args, char **types)
 	if (conversion->type == 'p' || conversion->type == 'P')
 		ft_ptr(conversion, args);
 	ft_precision(conversion);
-	ft_hash(conversion);
 	if (conversion->type != 'c')
 		ft_width(conversion);
+	ft_hash(conversion);
 	ft_space(conversion);
 	ft_plus(conversion);
 	ft_zero(conversion);
