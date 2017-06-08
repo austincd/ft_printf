@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 00:27:57 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:33:50 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(intmax_t n);
-char			*ft_ntoa(uintmax_t val, unsigned int base, unsigned int sign);
+char			*ft_ntoa(uintmax_t val, unsigned int base, short sign);
 char			*ft_itoa_base(intmax_t val, int base);
 char			*ft_itoa_float(long double num, int base);
 void			ft_putchar(unsigned int c);
