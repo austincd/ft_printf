@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/06/07 21:04:51 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 21:04:26 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		*ft_itoa_base(intmax_t val, int base)
 	char		*new;
 
 	new = NULL;
-	if ((uintmax_t)val == 9223372036854775808ull)
+	if ((unsigned)val == 9223372036854775808ull)
 		return (ft_fuck_printf());
 	if (base >= 2 && base <= 16)
 	{
