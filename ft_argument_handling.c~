@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:55:02 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/06 19:01:00 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,6 @@ char		*ft_parse_width(char *str, t_pfconv *new)
 				new->width = ft_atoi(ptr);
 				while (ft_isdigit(*ptr))
 					++ptr;
-				if (*ptr == '*')
-				{
-					new->width = -2;
-					return (ptr + 1);
-				}
 				return (ptr);
 			}
 			else

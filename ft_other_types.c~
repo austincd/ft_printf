@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:17:57 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:57:52 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 
 int			ft_other_types(t_pfconv *current, va_list args)
 {
-	ft_import_options(current, args);
+	if (current->width == -2)
+		current->width = va_arg(args, int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, int);
 	if (current->type == 'c')
 		ft_char(current, va_arg(args, int));
 	if (current->type == 'C')

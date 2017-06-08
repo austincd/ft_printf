@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:17:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 02:13:09 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,17 @@ void	ft_signed_integer_types(t_pfconv *current, va_list args)
 	char		*str;
 	int			base;
 
-	ft_import_options(current, args);
+	if (current->width == -2)
+	{
+		current->width = va_arg(args, int);
+		if (current->width < 0)
+		{
+			current->width *= -1;
+			current->flags[0] = 1;
+		}
+	}
+	if (current->precision == -2)
+		current->precision = va_arg(args, int);
 	base = 10;
 	if (current->type == 'x' || current->type == 'X')
 		base = 16;
@@ -46,7 +56,10 @@ void	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	char				*str;
 	int					base;
 
-	ft_import_options(current, args);
+	if (current->width == -2)
+		current->width = va_arg(args, unsigned int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, unsigned int);
 	base = 10;
 	if (current->type == 'x' || current->type == 'X')
 		base = 16;

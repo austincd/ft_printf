@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:18:31 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:27:19 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ void			ft_floating_types(t_pfconv *current, va_list args)
 {
 	long double	new;
 
-	ft_import_options(current, args);
+	if (current->width == -2)
+		current->width = va_arg(args, int);
+	if (current->precision == -2)
+		current->precision = va_arg(args, int);
 	if (current->precision <= 0 && ft_lowercase(current->type) != 'a' \
 	&& ft_lowercase(current->type) != 'g')
 		current->precision = 6;
