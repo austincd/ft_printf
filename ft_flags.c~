@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:02:32 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:00:33 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_hash(t_pfconv *current)
 {
 	if (current->flags[4] == 1)
 	{
-		if (ft_tolower(current->type == 'o') && current->string[0] != '0')
+		if (ft_tolower(current->type == 'o'))
 			ft_restrcat(&(current->prefix), "0");
 		if (current->type == 'x' && ft_atoi(current->string))
 			ft_restrcat(&(current->prefix), "0x");
