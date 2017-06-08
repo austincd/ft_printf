@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:25:13 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:27:31 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ int						ft_evaluate_conversions(t_slist *list, va_list args)
 	counter = 0;
 	while (list)
 	{
-		if (list->conversion)
+		if (list->conversion && list->conversion->type != 'n')
 		{
 			ft_conversion(list->conversion, args, types);
 			list->string = list->conversion->final;
 			list->size = list->conversion->chars;
 			list->type = list->conversion->type;
 		}
-		else
+		else if (list->conversion->type != 'n')
 			list->size = ft_strlen(list->string);
 		++counter;
 		list = list->next;
