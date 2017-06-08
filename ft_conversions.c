@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/05 19:17:31 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/06 17:09:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 01:14:41 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ char		*ft_parse_type(char *str, t_pfconv *new, char **types)
 	ptr = str;
 	if (new && types)
 	{
-		new->type = 0;
+		new->type = '%';
 		if (ptr)
 		{
-			while (!ft_strchr(types[0], *ptr))
+			while (!ft_strchr(types[0], *ptr) && *ptr)
 				++ptr;
 			if (ft_strchr(types[0], *ptr))
 			{

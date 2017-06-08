@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 16:30:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:07:33 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 01:03:15 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,23 @@ static void	ft_finalize_one(t_pfconv *current)
 	char	*final;
 
 	final = NULL;
-	if (current->string)
+	if (ft_lowercase(current->type) == 'c')
 	{
-		ft_restrcat(&final, current->prefix);
-		ft_restrcat(&final, current->widthstr);
-		ft_restrcat(&final, current->string);
-		ft_restrcat(&final, current->exponent);
-		current->final = final;
+		current->final = current->string;
+		current->string = NULL;
 	}
-	current->chars = ft_strlen(current->final);
+	else
+	{
+		if (current->string)
+		{
+			ft_restrcat(&final, current->prefix);
+			ft_restrcat(&final, current->widthstr);
+			ft_restrcat(&final, current->string);
+			ft_restrcat(&final, current->exponent);
+			current->final = final;
+		}
+		current->chars = ft_strlen(current->final);
+	}
 }
 
 static void	ft_finalize_two(t_pfconv *current)
@@ -91,8 +99,8 @@ void		ft_finalize(t_pfconv *current)
 			ft_finalize_two(current);
 		else if (ft_lowercase(current->type) != 'n')
 			ft_finalize_one(current);
-		if (current->type == 'c' && !ft_strlen(current->string))
-			current->chars += 1;
+//		if (current->type == 'c' && !ft_strlen(current->string))
+//			current->chars += 1;
 		if (ft_lowercase(current->type) != 'n')
 			ft_free_wofinal(current);
 	}

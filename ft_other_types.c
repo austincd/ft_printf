@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:24:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:57:52 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_char(t_pfconv *current, char c)
 static int	ft_char_wide(t_pfconv *current, unsigned int c)
 {
 	int				width;
-	unsigned long	full_char;
+	wchar_t			full_char;
 
 	full_char = ft_char_expand(c);
 	width = ft_utf8width((unsigned char*)&full_char);
@@ -77,9 +77,9 @@ int			ft_other_types(t_pfconv *current, va_list args)
 		current->width = va_arg(args, int);
 	if (current->precision == -2)
 		current->precision = va_arg(args, int);
-	if (ft_lowercase(current->type) == 'c')
+	if (current->type == 'c')
 		ft_char(current, va_arg(args, int));
-	else if (current->type == 'C')
+	if (current->type == 'C')
 		ft_char_wide(current, va_arg(args, int));
 	if (current->type == 's')
 		ft_string(current, va_arg(args, char*));
