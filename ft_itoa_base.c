@@ -3,76 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/16 09:00:43 by exam              #+#    #+#             */
-/*   Updated: 2017/06/07 21:04:51 by adaly            ###   ########.fr       */
+/*   Created: 2017/06/08 00:19:08 by adaly             #+#    #+#             */
+/*   Updated: 2017/06/08 00:23:55 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int	ft_numlen_base(long long num, int base)
+char	*ft_itoa_base(intmax_t num, int base)
 {
-	int counter;
+	int			sign;
+	uintmax_t	unum;
+	char		*str;
 
-	counter = 0;
-	if (!num)
-		return (1);
-	while (num)
+	sign = 0;
+	if (num < 0)
 	{
-		num /= base;
-		++counter;
+		unum = num * -1;
+		sign = -1;
 	}
-	return (counter);
-}
-
-static void	ft_itoa_internal(char *str, long long num, int base)
-{
-	char	digits[17];
-
-	ft_strlcpy(digits, "0123456789ABCDEF", 17);
-	if (str)
+	else
 	{
-		if (num < base)
-			ft_charcat(str, digits[num]);
-		else if (num >= base)
-		{
-			ft_itoa_internal(str, num / base, base);
-			ft_itoa_internal(str, num % base, base);
-		}
+		unum = num;
 	}
-}
-
-static char	*ft_fuck_printf(void)
-{
-	return (ft_strdup("-9223372036854775808"));
-}
-
-char		*ft_itoa_base(intmax_t val, int base)
-{
-	int			length;
-	char		*new;
-
-	new = NULL;
-	if ((uintmax_t)val == 9223372036854775808ull)
-		return (ft_fuck_printf());
-	if (base >= 2 && base <= 16)
-	{
-		if (val < 0)
-		{
-			val *= -1;
-			if (base == 10)
-			{
-				length = ft_numlen_base(val, base) + 1;
-				new = ft_strnew(length);
-				ft_charcat(new, '-');
-			}
-		}
-		length = ft_numlen_base(val, base);
-		if (!new)
-			new = ft_strnew(length);
-		ft_itoa_internal(new, val, base);
-	}
-	return (new);
+	str = ft_ntoa(unum, base, sign);
+	return (str);
 }

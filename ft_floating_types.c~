@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 14:21:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 00:27:19 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:17:35 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ char **str, int *counter)
 
 static void		ft_a(t_pfconv *current, long double num)
 {
+	int			sign;
 	int			counter;
 	char		*str;
 	char		*last;
 	long double div;
 
+	sign = -1;
 	ft_a_helper(&div, &num, &str, &counter);
 	last = ft_basefloat(div, 16);
 	ft_restrcat(&str, last);
@@ -75,8 +77,11 @@ static void		ft_a(t_pfconv *current, long double num)
 	if (div == 0)
 		counter = 0;
 	if (counter >= 0)
+	{
+		sign = 0;
 		ft_restrcat(&current->exponent, "+");
-	last = ft_itoa(counter);
+	}
+	last = ft_ntoa(counter, 10, sign);
 	ft_restrcat(&current->exponent, last);
 	ft_strdel_plus(&last);
 	if (current->type == 'a')

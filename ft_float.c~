@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 05:03:11 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 00:26:35 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:13:10 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_float_standard(t_pfconv *current, long double num, int base)
 		num /= base;
 		++exponent;
 	}
-	temp = ft_itoa_base(exponent, base);
+	temp = ft_ntoa(exponent, base, 0);
 	if ((int)ft_strlen(temp) < base)
 		exp = ft_strjoin("0", temp);
 	else

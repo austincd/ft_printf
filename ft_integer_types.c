@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 21:06:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/08 00:30:50 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 	if (current->length == 2 || current->type == 'U')
 		new = va_arg(args, unsigned long int);
 	if ((current->length >= 3 && current->length <= 7 && current->length != 4))
-		new = va_arg(args, unsigned long long);
-	str = ft_utoa_base(new, base);
+		new = va_arg(args, uintmax_t);
+	str = ft_ntoa(new, base, 0);
 	if (ft_tolower(current->type) == current->type)
 		current->string = ft_strlowcase(str);
 	else
