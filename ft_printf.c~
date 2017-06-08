@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:04:31 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:11:10 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ static long long		ft_write_to_fd(t_slist *list, int fd)
 	chars = 0;
 	while (list)
 	{
-		if (list->type == 'n')
-			*((int*)list->string) = chars;
-		else
-			chars += write(fd, (list->string), list->size);
+		if (ft_lowercase(list->type) == 'n')
+		{
+			list->string = ft_itoa(chars);
+			list->size = ft_strlen(list->string);
+		}
+		chars += write(fd, (list->string), list->size);
 		list = list->next;
 	}
 	return (chars);
