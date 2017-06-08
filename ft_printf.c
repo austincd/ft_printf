@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:21:07 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:25:13 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int						ft_evaluate_conversions(t_slist *list, va_list args)
 	types[0] = ft_strdup("uxoUXO");
 	types[1] = ft_strdup("diDI");
 	types[2] = ft_strdup("fegaFEGA");
-	types[3] = ft_strdup("scn%SCN");
+	types[3] = ft_strdup("sc%SC");
 	counter = 0;
 	while (list)
 	{
