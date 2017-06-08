@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:14:38 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:21:07 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static long long		ft_write_to_fd(t_slist *list, int fd)
 			list->string = ft_itoa_base(chars, 10);
 			list->size = ft_strlen(list->string);
 		}
-		chars += write(fd, (list->string), list->size);
+		else
+			chars += write(fd, (list->string), list->size);
 		list = list->next;
 	}
 	return (chars);

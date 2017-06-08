@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:13:12 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 20:14:38 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static long long		ft_write_to_fd(t_slist *list, int fd)
 	{
 		if (ft_lowercase(list->type) == 'n')
 		{
+			printf("chars = %lld\n", chars);
 			list->string = ft_itoa_base(chars, 10);
 			list->size = ft_strlen(list->string);
 		}
