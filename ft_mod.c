@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 07:25:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/06 17:49:44 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void		ft_precision(t_pfconv *current)
 	floats = ft_strdup("gGfFaAeE");
 	if (current)
 	{
-		if (current->flags[3] && current->precision >= 0)
-			ft_zero(current);
+//		if (current->flags[3] && current->precision >= 0)
+//			ft_zero(current);
 		if (ft_strchr(ints, current->type))
 			ft_precision_integer(current);
 		else if (ft_strchr(strs, current->type))
@@ -40,7 +40,7 @@ void		ft_precision(t_pfconv *current)
 	free(floats);
 }
 
-static void	ft_width_helper(t_pfconv *current, unsigned int diff, char *tmp)
+/*static void	ft_width_helper(t_pfconv *current, unsigned int diff, char *tmp)
 {
 	if (current->flags[0] == 1)
 	{
@@ -75,3 +75,4 @@ void		ft_width(t_pfconv *current)
 		}
 	}
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 05:19:32 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 08:03:56 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 19:15:31 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,9 @@ va_list args, char **types)
 		ft_other_types(conversion, args);
 	if (conversion->type == 'p' || conversion->type == 'P')
 		ft_ptr(conversion, args);
-	ft_precision(conversion);
-	if (conversion->type != 'c')
-		ft_width(conversion);
-	ft_hash(conversion);
-	ft_space(conversion);
-	ft_plus(conversion);
-	ft_zero(conversion);
-	if (conversion->exponent)
-	{
-		ft_restrcat(&conversion->string, conversion->exponent);
-		conversion->chars = ft_strlen(conversion->string);
-	}
+	ft_mod(conversion);
+	ft_flags(conversion);
+	ft_finalize(conversion);
 }
 
 int						ft_evaluate_conversions(t_slist *list, va_list args)
@@ -79,7 +70,7 @@ int						ft_evaluate_conversions(t_slist *list, va_list args)
 	char	*types[5];
 	int		counter;
 
-	types[0] = ft_strdup("uxoXO");
+	types[0] = ft_strdup("uxoUXO");
 	types[1] = ft_strdup("diDI");
 	types[2] = ft_strdup("fegaFEGA");
 	types[3] = ft_strdup("scn%SCN");
@@ -89,7 +80,7 @@ int						ft_evaluate_conversions(t_slist *list, va_list args)
 		if (list->conversion)
 		{
 			ft_conversion(list->conversion, args, types);
-			list->string = list->conversion->string;
+			list->string = list->conversion->final;
 			list->size = list->conversion->chars;
 			list->type = list->conversion->type;
 		}

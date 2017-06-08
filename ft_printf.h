@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:48:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/05 19:46:50 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/06 17:55:16 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct		s_printf_conv
 	char					*orig;
 	int						chars;
 	char					*exponent;
+	char					*widthstr;
+	char					*final;
+	char					*prefix;
 }					t_pfconv;
 
 typedef struct		s_string_list
@@ -83,10 +86,15 @@ void				ft_unsigned_integer_types(t_pfconv *current, va_list args);
 void				ft_floating_types(t_pfconv *current, va_list args);
 int					ft_other_types(t_pfconv *current, va_list args);
 int					ft_ptr(t_pfconv *current, va_list args);
+void				ft_flags(t_pfconv *current);
+void				ft_mod(t_pfconv *current);
 void				ft_plus(t_pfconv *current);
 void				ft_hash(t_pfconv *current);
 void				ft_zero(t_pfconv *current);
 void				ft_space(t_pfconv *current);
+void				ft_minus(t_pfconv *current);
 void				ft_e(t_pfconv *current, long double num);
+char				**ft_build_types_alt(void);
+void				ft_finalize(t_pfconv *current);
 
 #endif

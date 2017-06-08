@@ -6,7 +6,7 @@
 #    By: adaly <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/05 14:16:26 by adaly             #+#    #+#              #
-#    Updated: 2017/06/05 19:55:41 by adaly            ###   ########.fr        #
+#    Updated: 2017/06/06 17:50:05 by adaly            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -52,7 +52,8 @@ ft_basefloat.c ft_power.c ft_floatmod.c ft_strichr.c ft_ftoa.c ft_strdel_plus.c
 SRCSPRINTF= ft_argument_handling.c ft_printf.c ft_float.c \
 ft_flags.c ft_convparse.c ft_tslist.c ft_integer_types.c ft_floating_types.c \
 ft_other_types.c ft_ptr.c ft_strndup.c ft_mod.c ft_precision.c \
-ft_conversions.c ft_convparse.c ft_e.c
+ft_conversions.c ft_convparse.c ft_e.c ft_mod_call.c ft_flags_call.c \
+ft_finalize.c ft_build_types.c ft_width.c 
 
 OBJECTS1= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o \
 ft_isascii.o ft_isdigit.o ft_isprint.o ft_memccpy.o \
@@ -92,7 +93,8 @@ ft_ftoa.o
 OBJECTSPRINTF= ft_argument_handling.o ft_printf.o ft_float.o \
 ft_flags.o ft_convparse.o ft_tslist.o ft_integer_types.o \
 ft_floating_types.o ft_other_types.o ft_ptr.o ft_mod.o ft_precision.o \
-ft_conversions.o ft_convparse.o ft_e.o ft_strdel_plus.o
+ft_conversions.o ft_convparse.o ft_e.o ft_strdel_plus.o ft_mod_call.o \
+ft_flags_call.o ft_finalize.o ft_build_types.o ft_width.o 
 
 all: $(NAME)
 

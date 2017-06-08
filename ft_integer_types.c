@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/05 19:13:12 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 19:48:47 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_signed_integer_types(t_pfconv *current, va_list args)
 	char		*str;
 	int			base;
 
+//	printf("type = %c\nlength = %d\n", current->type, current->length);
 	if (current->width == -2)
 		current->width = va_arg(args, unsigned int);
 	if (current->precision == -2)
@@ -30,9 +31,13 @@ void	ft_signed_integer_types(t_pfconv *current, va_list args)
 	new = 0;
 	if (current->length >= -1 && current->length <= 1)
 		new = va_arg(args, int);
+	if (current->length == 0)
+		new = (char)new;
+	if (current->length == 1)
+		new = (short)new;
 	if (current->length == 2)
 		new = va_arg(args, long int);
-	if (current->length == 3)
+	if (current->length >= 3)
 		new = va_arg(args, long long int);
 	str = ft_itoa_base(new, base);
 	current->string = str;
@@ -54,11 +59,11 @@ void	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 		base = 16;
 	if (current->type == 'o' || current->type == 'O')
 		base = 8;
-	if (current->length >= -1 && current->length <= 1)
+	if (current->length >= -1 && current->length <= 1 && current->type != 'U')
 		new = va_arg(args, unsigned int);
-	if (current->length == 2)
+	if (current->length == 2 || current->type == 'U')
 		new = va_arg(args, unsigned long int);
-	if (current->length >= 3 && current->length <= 7 && current->length != 4)
+	if ((current->length >= 3 && current->length <= 7 && current->length != 4))
 		new = va_arg(args, unsigned long long);
 	str = ft_utoa_base(new, base);
 	if (ft_tolower(current->type) == current->type)

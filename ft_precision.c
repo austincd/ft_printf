@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 13:34:29 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/04 08:04:24 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/07 19:01:18 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,21 @@ void			ft_precision_integer(t_pfconv *current)
 
 	z_str = NULL;
 	num_zeroes = current->precision - ft_strlen(current->string);
+	if (current->precision == 0 && !ft_atoi(current->string))
+		current->string[0] = 0;
 	if (num_zeroes > 0)
 	{
-		z_str = ft_strnew(num_zeroes);
+		z_str = ft_strnew(num_zeroes + 1);
 		if (z_str)
 		{
-			ft_memset(z_str, '0', num_zeroes);
+			if (ft_strchr(current->string, '-'))
+			{
+				ft_restrcat(&z_str, "-");
+				ft_memset(z_str + 1, '0', num_zeroes);
+				ft_memset((ft_strchr(current->string, '-')), '0', 1);
+			}
+			else
+				ft_memset(z_str, '0', num_zeroes);
 			ft_restrcat(&z_str, current->string);
 			free(current->string);
 			current->string = z_str;

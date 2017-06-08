@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 19:34:56 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/05 19:20:28 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/06 19:01:00 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,8 @@ char		*ft_parse_precision(char *str, t_pfconv *new)
 					new->precision = -2;
 					++ptr;
 				}
+				else
+					new->precision = 0;
 			}
 		}
 	}
