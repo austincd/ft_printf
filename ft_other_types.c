@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/09 22:38:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/10 19:37:24 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 int			ft_other_types(t_pfconv *current, va_list args)
 {
 	ft_import_options(current, args);
-	if (current->type == 'c')
+	if (ft_lowercase(current->type) == 'c')
 		ft_char(current, va_arg(args, int));
-	if (current->type == 'C')
-		ft_char_wide(current, va_arg(args, int));
-	if (current->type == 's')
+//	if (current->type == 'C')
+//		ft_char_wide(current, va_arg(args, int));
+	if (ft_lowercase(current->type) == 's')
 		ft_string(current, va_arg(args, char*));
-	if (current->type == 'S' || (current->type == 's' && current->length == 2))
-		ft_string_wide(current, va_arg(args, char*));
+//	if (current->type == 'S' || (current->type == 's' && current->length == 2))
+//		ft_string_wide(current, va_arg(args, char*));
 	if (current->type == '%')
 		ft_char(current, '%');
 //	if (current->type == 'n')
