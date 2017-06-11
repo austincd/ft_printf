@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 16:56:14 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/06 20:38:13 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 22:28:47 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 
 static void ft_flags_integer(t_pfconv *current)
 {
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
 	ft_hash(current);
-	ft_space(current);
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
 	ft_zero(current);
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
+	ft_space(current);
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
 	ft_plus(current);
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
 	ft_minus(current);
+//	printf("prefixwidthstring = %s%s%s\n", current->prefix, current->widthstr, current->string);
 }
 
 static void ft_flags_float(t_pfconv *current)

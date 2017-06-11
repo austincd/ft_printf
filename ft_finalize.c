@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 16:30:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:41:58 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 23:05:35 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,9 @@ void		ft_finalize(t_pfconv *current)
 			ft_strdel_plus(&(current->string));
 			current->string = temp;
 		}
-		if (current->flags[0] && ft_lowercase(current->type) != 'c')
+		else if (current->type == 'S')
+			ft_finalize_wstr(current);
+		else if (current->flags[0] && ft_lowercase(current->type) != 'c')
 			ft_finalize_three(current);
 		else if (current->flags[4] && !current->flags[3] && ft_lowercase(current->type) != 'c')
 			ft_finalize_two(current);

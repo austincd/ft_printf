@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/05 15:33:01 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 00:33:50 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 22:45:40 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char			*ft_strdup(const char *s1);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlen(char *str);
+uintmax_t		ft_wstrlen(wchar_t *wstr);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
 char			*ft_strnchr(const char *s, int c, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);

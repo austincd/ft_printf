@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 21:34:57 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/07 20:02:32 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 22:31:52 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_hash(t_pfconv *current)
 {
 	if (current->flags[4] == 1)
 	{
-		if (ft_tolower(current->type == 'o') && current->string[0] != '0')
+		if (ft_lowercase(current->type) == 'o' && current->string[0] != '0')
 			ft_restrcat(&(current->prefix), "0");
 		if (current->type == 'x' && ft_atoi(current->string))
 			ft_restrcat(&(current->prefix), "0x");
@@ -30,7 +30,6 @@ void	ft_hash(t_pfconv *current)
 void	ft_space(t_pfconv *current)
 {
 	char *ints;
-	char *temp;
 
 	ints = ft_strdup("idID");
 	if (current)
@@ -38,17 +37,13 @@ void	ft_space(t_pfconv *current)
 		if (!current->flags[1] && current->flags[2] && \
 		ft_strchr(ints, current->type))
 		{
-			if (!ft_strchr(current->string, '-') && current->width \
-			< (int)ft_strlen(current->string))
+			if (!ft_strchr(current->string, '-') && !current->widthstr)
 			{
-				temp = current->string;
-				current->string = ft_strjoin(" ", current->string);
-				current->chars = ft_strlen(current->string);
-				ft_strdel_plus(&temp);
+				current->widthstr = ft_strdup(" ");
+				current->chars += 1;
 			}
-			else if (!ft_strchr(current->string, '-') && \
-			current->width == (int)ft_strlen(current->string))
-				current->string[0] = ' ';
+			else if (!ft_strchr(current->string, '-') && current->widthstr)
+				current->widthstr[0] = ' ';
 		}
 	}
 	ft_strdel_plus(&ints);

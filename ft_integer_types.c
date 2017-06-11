@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 13:56:52 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:17:09 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 21:57:19 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	ft_unsigned_integer_types(t_pfconv *current, va_list args)
 		base = 8;
 	if (current->length >= -1 && current->length <= 1 && current->type != 'U')
 		new = va_arg(args, unsigned int);
+	if (current->length == 0)
+		new = (unsigned char)new;
+	if (current->length == 1)
+		new = (unsigned short)new;
 	if (current->length == 2 || current->type == 'U')
 		new = va_arg(args, unsigned long int);
 	if ((current->length >= 3 && current->length <= 7 && current->length != 4))

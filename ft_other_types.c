@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/08 02:17:57 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/09 22:38:09 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 	{
 		current->string = ft_strdup("(null)");
 		current->chars = ft_strlen(current->string);
+		printf("current->chars is %d\n", current->chars);
 	}
 	return (current->chars);
 }
