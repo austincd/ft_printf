@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 20:12:55 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/10 19:37:24 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/10 19:39:29 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_char(t_pfconv *current, char c)
 	return (1);
 }
 
-static int	ft_char_wide(t_pfconv *current, unsigned int c)
+/*static int	ft_char_wide(t_pfconv *current, unsigned int c)
 {
 	int				width;
 	wchar_t			full_char;
@@ -31,7 +31,7 @@ static int	ft_char_wide(t_pfconv *current, unsigned int c)
 	current->chars = width;
 	ft_memcpy(current->string, &full_char, width);
 	return (width);
-}
+}*/
 
 static int	ft_string(t_pfconv *current, char *c)
 {
@@ -48,7 +48,7 @@ static int	ft_string(t_pfconv *current, char *c)
 	return (current->chars);
 }
 
-static int	ft_string_wide(t_pfconv *current, char *c)
+/*static int	ft_string_wide(t_pfconv *current, char *c)
 {
 	wchar_t	*wc;
 	int		index;
@@ -70,7 +70,7 @@ static int	ft_string_wide(t_pfconv *current, char *c)
 		printf("current->chars is %d\n", current->chars);
 	}
 	return (current->chars);
-}
+}*/
 
 int			ft_other_types(t_pfconv *current, va_list args)
 {

@@ -6,7 +6,7 @@
 /*   By: adaly <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 16:30:42 by adaly             #+#    #+#             */
-/*   Updated: 2017/06/09 23:05:35 by adaly            ###   ########.fr       */
+/*   Updated: 2017/06/10 19:46:29 by adaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void		ft_finalize(t_pfconv *current)
 			temp = ft_strdup(current->string + 1);
 			ft_strdel_plus(&(current->string));
 			current->string = temp;
+			ft_finalize_one(current);
 		}
 		else if (current->type == 'S')
 			ft_finalize_wstr(current);
